@@ -50,7 +50,6 @@ and mobile browser.
 
 ``` javascript
 module.exports = {
-  package: '.',
   profiles: {
     desktop: {
       tags: ['~@mobile-only']
