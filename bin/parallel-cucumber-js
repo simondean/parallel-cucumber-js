@@ -1,0 +1,86 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var Optimist = require('optimist');
+var Debug = require('debug')('parallel-cucumber-js')
+var ParallelCucumber = require('../lib/parallel_cucumber');
+
+
+function exit(code) {
+  Debug("Exiting with code " + code);
+
+  // See https://github.com/joyent/node/issues/3737 for more information
+  // on why the process exit event is used
+  process.on('exit', function() {
+    process.exit(code);
+  });
+};
+
+var optimist = Optimist
+  .usage('Usage: $0 options [FILE|DIR]+')
+  .options('h', {
+    alias: 'help',
+    describe: 'Displays this help message'
+  })
+  .options('c', {
+    alias: 'config',
+    default: './ParallelCucumberfile.js',
+    describe: 'Path to the config file'
+  })
+  .options('o', {
+    alias: 'out',
+    describe: 'File to save the cucumber output to.  If not specified, output will go to stdout'
+  })
+  .options('w', {
+    alias: 'workers',
+    default: 2,
+    describe: 'Number of instances of cucumber to run in parallel'
+  })
+  .options('d', {
+    alias: 'dry-run',
+    boolean: true,
+    default: false,
+    describe: 'Enables cucumber\'s dry run mode'
+  })
+  .options('debug', {
+    describe: 'Starts cucumber workers in debug mode.  Pass a number to set the port the first worker should listen on.  Subsequent workers will increment the port number.  Default debug port is the node.js standard of 5858'
+  })
+  .options('debug-brk', {
+    describe: 'Starts cucumber workers in debug mode and breaks on the first line.  Accepts an optional port number like --debug'
+  });
+var argv = optimist.argv;
+
+
+
+if (argv.help) {
+  optimist.showHelp();
+  exit(0);
+}
+else {
+  var options = {
+    configFile: argv['config'],
+    out: argv.out,
+    workerCount: argv.workers,
+    dryRun: argv['dry-run'],
+    debug: argv.debug,
+    debugBrk: argv['debug-brk'],
+    features: argv._
+  };
+
+  Debug('Options ' + JSON.stringify(options));
+
+  ParallelCucumber(options).run(function(err, info) {
+    if (err) {
+      Debug('Exiting');
+      console.error(err);
+      exit(2);
+    }
+    else {
+      var code = info.success ? 0 : 1;
+      process.on('exiting', function() {
+        exit(code);
+      });
+    }
+  });
+}

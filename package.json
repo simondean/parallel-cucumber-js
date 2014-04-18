@@ -1,0 +1,52 @@
+{
+  "name": "parallel-cucumber",
+  "description": "Executes Cucumber scenarios in parrallel, reducing the amount of time tests take to execute",
+  "keywords": [
+    "cucumber",
+    "cucumber-js",
+    "grid",
+    "parallel",
+    "scale"
+  ],
+  "version": "0.0.1",
+  "homepage": "http://github.com/simondean/parallel-cucumber-js",
+  "author": { 
+    "name" : "Simon Dean",
+    "email" : "simon@simondean.org",
+    "url" : "http://www.simondean.org"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/simondean/parallel-cucumber-js.git"
+  },
+  "bugs": {
+    "url": "http://github.com/simondean/parallel-cucumber-js/issues"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/parallel-cucumber",
+  "engines": {
+    "node": ">=0.6"
+  },
+  "dependencies": {
+    "optimist": "~0.4.0",
+    "async": "~0.2.7",
+    "glob": "~3.2.1",
+    "debug": "~0.7.2",
+    "js-yaml": "~2.1.0",
+    "colors": "~0.6.0-1"
+  },
+  "devDependencies": {
+  },
+  "bin": {
+    "parallel-cucumber-js": "./bin/parallel-cucumber-js"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/simondean/parallel-cucumber/LICENSE"
+    }
+  ]
+}
