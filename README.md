@@ -1,6 +1,8 @@
 # parallel-cucumber-js
 
-Executes Cucumber scenarios in parrallel, reducing the amount of time tests take to execute.  
+Executes Cucumber scenarios in parrallel, reducing the amount of time tests take to execute.
+
+__WARNING: This is work-in-progress.  It is not working yet__
 
 ## Usage
 
