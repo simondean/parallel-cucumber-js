@@ -1,5 +1,6 @@
 var ChildProcess = require('child_process');
 var DeepDiff = require('deep-diff');
+var FS = require('fs');
 
 module.exports = function() {
   this.Given(/^the '(.*)' tags?$/, function(tags, callback) {
@@ -36,6 +37,25 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^a config file containing:$/, function(content, callback) {
+    if (isDryRun()) { return callback(); }
+
+    var world = this;
+
+    var configFilePath = 'tmp/ParallelCucumberfile.' + Math.random() + '.js';
+
+    FS.writeFile(configFilePath, content, function(err) {
+      if (err) {
+        callback(err);
+        return;
+      }
+
+      world.configFilePath = configFilePath;
+
+      callback();
+    });
+  });
+
   this.When(/^executing the parallel-cucumber-js bin$/, function(callback) {
     if (isDryRun()) { return callback(); }
 
@@ -54,6 +74,11 @@ module.exports = function() {
         args.push('--profiles.' + profileName + '.tags');
         args.push(profile.tags);
       });
+    }
+
+    if (world.configFilePath) {
+      args.push('-c');
+      args.push('../' + world.configFilePath);
     }
 
     world.child = ChildProcess.spawn('node', args, {
@@ -134,8 +159,8 @@ function normalizeFeatureOrder(report) {
   report.sort(function(a, b) {
     if (a.uri < b.uri) return -1;
     if (a.uri > b.uri) return 1;
-    if (a.profileName < b.profileName) return -1;
-    if (a.profileName > b.profileName) return 1;
+    if (a.profile < b.profile) return -1;
+    if (a.profile > b.profile) return 1;
     return 0;
   });
 }
