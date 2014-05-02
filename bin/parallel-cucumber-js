@@ -2,8 +2,8 @@
 
 'use strict';
 
-var Optimist = require('optimist');
-var Debug = require('debug')('parallel-cucumber-js')
+var Yargs = require('yargs');
+var Debug = require('debug')('parallel-cucumber-js');
 var ParallelCucumber = require('../lib/parallel_cucumber');
 
 
@@ -17,15 +17,14 @@ function exit(code) {
   });
 };
 
-var optimist = Optimist
-  .usage('Usage: $0 options [FILE|DIR]+')
+var optimist = Yargs
+  .usage('Usage: $0 options [FILE|DIR]*')
   .options('h', {
     alias: 'help',
     describe: 'Displays this help message'
   })
   .options('c', {
     alias: 'config',
-    default: './ParallelCucumberfile.js',
     describe: 'Path to the config file'
   })
   .options('o', {
@@ -36,6 +35,17 @@ var optimist = Optimist
     alias: 'workers',
     default: 2,
     describe: 'Number of instances of cucumber to run in parallel'
+  })
+  .options('r', {
+    alias: 'require',
+    describe: 'Require support code files before executing the features.  Specifying this option disables automatic loading.'
+  })
+  .options('t', {
+    alias: 'tags',
+    describe: 'Tags of the features or scenarios to execute.  Sets the tags for the default profile.  Use --profile.name.tags to set the tags for a profile'
+  })
+  .options('profile.name.tags', {
+    describe: 'Tags of the features or scenarios to execute for a profile.  Replace name in the arg with the name of the profile'
   })
   .options('d', {
     alias: 'dry-run',
@@ -51,21 +61,22 @@ var optimist = Optimist
   });
 var argv = optimist.argv;
 
-
-
 if (argv.help) {
   optimist.showHelp();
   exit(0);
 }
 else {
   var options = {
-    configFile: argv['config'],
-    out: argv.out,
-    workerCount: argv.workers,
+    configFilePath: argv['config'],
+    out: argv['out'],
+    workerCount: argv['workers'],
+    supportCodePaths: argv['require'],
+    tags: argv['tags'],
+    profiles: argv['profiles'],
     dryRun: argv['dry-run'],
-    debug: argv.debug,
+    debug: argv['debug'],
     debugBrk: argv['debug-brk'],
-    features: argv._
+    featurePaths: argv._
   };
 
   Debug('Options ' + JSON.stringify(options));
@@ -78,9 +89,7 @@ else {
     }
     else {
       var code = info.success ? 0 : 1;
-      process.on('exiting', function() {
-        exit(code);
-      });
+      exit(code);
     }
   });
 }
