@@ -32,23 +32,35 @@ then install with:
 $ npm install --dev
 ```
 
-### Config
+### Run
 
-You need to add a ParallelCucumberfile.js confg file to the your test codebase:
+parallel-cucumber-js can be ran from a terminal as follows:
 
-``` javascript
-module.exports = {
-  profiles: {
-    default: {
-    }
-  }
-};
+``` shell
+$ node_modules/.bin/parallel-cucumber-js
 ```
 
-Multiple profiles can be configured and the cucumber tests will be
-executed multiple times, once for each profile.  This can be useful for
-things like executing the same tests against both a desktop browser
+By default parallel-cucumber will look for features files under a directly called `./features`
+
+The number of features that will be executed in parallel can be set by passing the `-w` argument:
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js -w 4
+```
+
+parallel-cucumber can execute the same scenario multiple times.  This can be
+useful for things like executing the same tests against both a desktop browser
 and mobile browser.
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js --profile.desktop.tags ~@mobile-only --profile.mobile.tags ~@desktop-only
+```
+
+### Config
+
+In addition to passing in arguments, parallel-cucumber can be configured
+through a config file.  All of parallel-cucumber's arguments can be set via
+the config file.  Create a file called `ParallelCucumberfile.js:
 
 ``` javascript
 module.exports = {
@@ -63,18 +75,8 @@ module.exports = {
 };
 ```
 
-parallel-cucumber-js currently only works with cucumber's JSON formatter.  It
-doesn't support the HTML or pretty formatters.
-
-### Run
-
-parallel-cucumber-js can be ran from terminal as follows:
+then pass the `-c` argument:
 
 ``` shell
-$ node_modules/.bin/parallel-cucumber-js --workers 4
+$ node_modules/.bin/parallel-cucumber-js -c ParallelCucumberfile.js
 ```
-
-### Example
-
-See https://github.com/simondean/parallel-cucumber-js-example for an example
-test codebase that uses parallel-cucumber-js.
