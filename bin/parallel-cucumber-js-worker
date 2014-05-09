@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var ParallelCucumber = require('../lib/parallel_cucumber');
+var main = ParallelCucumber.Workers.Main();
+main.start();
