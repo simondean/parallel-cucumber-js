@@ -23,10 +23,6 @@ var optimist = Yargs
     alias: 'help',
     describe: 'Displays this help message'
   })
-  .options('c', {
-    alias: 'config',
-    describe: 'Path to the config file'
-  })
   .options('f', {
     alias: 'format',
     describe: 'How to format the results of executing features.  Syntax is FORMAT[:PATH] where FORMAT can be json or progress or the path to a custom formatter script.  The default format is progress.  If specified, PATH is the file that output will be written to'
@@ -67,7 +63,6 @@ if (argv.help) {
 }
 else {
   var options = {
-    configFilePath: argv['config'],
     formats: argv['format'],
     workerCount: argv['workers'],
     supportCodePaths: argv['require'],
