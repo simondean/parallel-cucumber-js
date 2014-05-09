@@ -43,7 +43,9 @@
   },
   "devDependencies": {
     "cucumber": "~0.3.1",
-    "deep-diff": "~0.1.7"
+    "deep-diff": "~0.1.7",
+    "diff": "~1.0.8",
+    "stripcolorcodes": "~0.1.0"
   },
   "bin": {
     "parallel-cucumber-js": "./bin/parallel-cucumber-js"

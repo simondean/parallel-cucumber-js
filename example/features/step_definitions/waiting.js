@@ -24,7 +24,7 @@ module.exports = function() {
       );
     }
     else {
-      callback("ERROR: WAIT environment variable has not been set");
+      callback({ message: 'ERROR: WAIT environment variable has not been set' });
     }
   });
 
@@ -36,10 +36,10 @@ module.exports = function() {
     maxInterval *= 1000;
 
     if (actualInterval < minInterval) {
-      callback({ message: "Elapsed interval was " + actualInterval + " milliseconds which is less than the minimum interval of " + minInterval + " milliseconds"});
+      callback({ message: 'Elapsed interval was ' + actualInterval + ' milliseconds which is less than the minimum interval of ' + minInterval + ' milliseconds' });
     }
     else if (actualInterval > maxInterval) {
-      callback({ message: "Elapsed interval was " + actualInterval + " milliseconds which is greater than the maximum interval of " + minInterval + " milliseconds"});
+      callback({ message: 'Elapsed interval was ' + actualInterval + ' milliseconds which is greater than the maximum interval of ' + minInterval + ' milliseconds' });
     }
     else {
       callback();

@@ -27,9 +27,9 @@ var optimist = Yargs
     alias: 'config',
     describe: 'Path to the config file'
   })
-  .options('o', {
-    alias: 'out',
-    describe: 'File to save the cucumber output to.  If not specified, output will go to stdout'
+  .options('f', {
+    alias: 'format',
+    describe: 'How to format the results of executing features.  Syntax is FORMAT[:PATH] where FORMAT can be json or progress or the path to a custom formatter script.  The default format is progress.  If specified, PATH is the file that output will be written to'
   })
   .options('w', {
     alias: 'workers',
@@ -44,7 +44,7 @@ var optimist = Yargs
     alias: 'tags',
     describe: 'Tags of the features or scenarios to execute.  Sets the tags for the default profile.  Use --profile.name.tags to set the tags for a profile'
   })
-  .options('profile.name.tags', {
+  .options('profiles.name.tags', {
     describe: 'Tags of the features or scenarios to execute for a profile.  Replace name in the arg with the name of the profile'
   })
   .options('d', {
@@ -68,7 +68,7 @@ if (argv.help) {
 else {
   var options = {
     configFilePath: argv['config'],
-    out: argv['out'],
+    formats: argv['format'],
     workerCount: argv['workers'],
     supportCodePaths: argv['require'],
     tags: argv['tags'],
@@ -81,7 +81,7 @@ else {
 
   Debug('Options ' + JSON.stringify(options));
 
-  ParallelCucumber(options).run(function(err, info) {
+  ParallelCucumber.Cli.Main(options).run(function(err, info) {
     if (err) {
       Debug('Exiting');
       console.error(err);
