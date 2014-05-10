@@ -1,8 +1,11 @@
 # parallel-cucumber-js
 
-Executes Cucumber scenarios in parrallel, reducing the amount of time tests take to execute.
+Executes Cucumber scenarios in parallel, reducing the amount of time tests take to execute.
 
-__WARNING: This is work-in-progress.  It is not working yet__
+parallel-cucumber-js uses multiple node.js processes to execute more than one Cucumber feature at a time.  This can
+greatly reduce the time it takes for a test suite to execute.  However, a test suite needs to be built with
+parallization in mind; especially when the Cucumber features are accessing shared resources like a database-backed
+web service.
 
 ## Usage
 
@@ -40,7 +43,9 @@ parallel-cucumber-js can be ran from a terminal as follows:
 $ node_modules/.bin/parallel-cucumber-js
 ```
 
-By default parallel-cucumber will look for features files under a directly called `./features`
+By default parallel-cucumber will look for features files under a directory called `./features`
+
+### Number of Workers
 
 The number of features that will be executed in parallel can be set by passing the `-w` argument:
 
@@ -48,35 +53,44 @@ The number of features that will be executed in parallel can be set by passing t
 $ node_modules/.bin/parallel-cucumber-js -w 4
 ```
 
-parallel-cucumber can execute the same scenario multiple times.  This can be
-useful for things like executing the same tests against both a desktop browser
-and mobile browser.
+Setting the number of workers controls the amount of parallization.  The larger the number of workers, the more
+Cucumber feature will be executed in parallel.  By default the number of workers is set to the number of CPU cores in
+the machine running parallel-cucumber.
+
+### Profiles
+
+parallel-cucumber can execute the same scenario multiple times.  This can be useful for things like executing the same
+tests against both a desktop browser and mobile browser.
 
 ``` shell
 $ node_modules/.bin/parallel-cucumber-js --profile.desktop.tags ~@mobile-only --profile.mobile.tags ~@desktop-only
 ```
 
-### Config
+parallel-cucumber sets an environment variable called PARALLEL_CUCUMBER_PROFILE which can be used within the
+Cucumber step defs and support code to determine which profile is currently executing.
 
-In addition to passing in arguments, parallel-cucumber can be configured
-through a config file.  All of parallel-cucumber's arguments can be set via
-the config file.  Create a file called `ParallelCucumberfile.js:
+### Formats
 
-``` javascript
-module.exports = {
-  profiles: {
-    desktop: {
-      tags: ['~@mobile-only']
-    },
-    mobile: {
-      tags: ['~@desktop-only']
-    }
-  }
-};
-```
-
-then pass the `-c` argument:
+Two output formats are supported: json and progress.  The progress format is the default.  The `-f` argument is used
+to configure a different format:
 
 ``` shell
-$ node_modules/.bin/parallel-cucumber-js -c ParallelCucumberfile.js
+$ node_modules/.bin/parallel-cucumber-js -f json
 ```
+
+By default, output is sent to the console but you can also send it to a file:
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js -f json:./output.json
+```
+
+You can configure multiple formats, with each format configured to output to the console or a file:
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js -f json:./output.json -f progress
+```
+
+### Example
+
+See https://github.com/simondean/parallel-cucumber-js-example for an example
+test codebase that uses parallel-cucumber-js.
