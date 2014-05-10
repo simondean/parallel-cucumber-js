@@ -221,25 +221,34 @@ module.exports = function() {
     expectedYaml = normalizeMultiLineYaml(expectedYaml);
     var actualYaml = normalizeMultiLineYaml(world.stdout);
 
-    var durationRegExp = /^\d{2}:\d{2}:\d{2}\.\d{3}$/;
+    var zeroOrGreaterNumberKeys = ['worker'];
+    var durationKeys = ['duration', 'duration', 'elapsed', 'saved'];
+    var durationRegExp = /^-?\d{2,}:\d{2}:\d{2}\.\d{3}$/;
+    var percentageKeys = ['savings'];
+    var percentageRegExp = /^-?\d{1,}\.\d{2}%$/;
 
     actualYaml.forEach(function(event) {
-      var item;
+      Object.keys(event).forEach(function(itemKey) {
+        var item = event[itemKey];
 
-      if (event.scenario) {
-        item = event.scenario;
-      }
-      else if (event.feature) {
-        item = event.feature;
-      }
+        zeroOrGreaterNumberKeys.forEach(function(valueKey) {
+          if (typeof item[valueKey] === 'number' && item[valueKey] >= 0) {
+            item[valueKey] = '{zeroOrGreaterNumber}';
+          }
+        });
 
-      if (typeof item.worker === 'number' && item.worker >= 0) {
-        item.worker = '{worker}';
-      }
+        durationKeys.forEach(function(valueKey) {
+          if (typeof item[valueKey] === 'string' && durationRegExp.test(item[valueKey])) {
+            item[valueKey] = '{duration}';
+          }
+        });
 
-      if (typeof item.duration === 'string' && durationRegExp.test(item.duration)) {
-        item.duration = '{duration}';
-      }
+        percentageKeys.forEach(function(valueKey) {
+          if (typeof item[valueKey] === 'string' && percentageRegExp.test(item[valueKey])) {
+            item[valueKey] = '{percentage}';
+          }
+        });
+      });
     });
 
     expectedYaml = dumpMultiLineYaml(expectedYaml);
@@ -354,10 +363,18 @@ function normalizeMultiLineYaml(value) {
       return 0;
     }
 
+    if (a.summary && b.summary) {
+      if (a.status < b.status) return -1;
+      if (a.status > b.status) return 1;
+      return 0;
+    }
+
     if (a.scenario) return -1;
     if (b.scenario) return 1;
     if (a.feature) return -1;
     if (b.feature) return 1;
+    if (a.summary) return -1;
+    if (b.summary) return 1;
     return 0;
   });
 

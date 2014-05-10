@@ -328,8 +328,9 @@ Feature: The parallel-cucumber-js bin
     Then the exit code should be '0'
     And stdout should contain new line separated YAML matching:
     """
-    {scenario: {worker: "{worker}", status: passed, profile: default, uri: features/passing_feature/Passing, duration: "{duration}"}}
-    {feature: {worker: "{worker}", status: finished, profile: default, uri: features/passing_feature, duration: "{duration}"}}
+    {scenario: {worker: "{zeroOrGreaterNumber}", status: passed, profile: default, uri: features/passing_feature/Passing, duration: "{duration}"}}
+    {feature: {worker: "{zeroOrGreaterNumber}", status: finished, profile: default, uri: features/passing_feature, duration: "{duration}"}}
+    {summary: {status: finished, duration: "{duration}", elapsed: "{duration}", saved: "{duration}", savings: "{percentage}"}}
       """
     And stderr should be empty
 
