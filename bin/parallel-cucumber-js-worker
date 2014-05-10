@@ -2,6 +2,6 @@
 
 'use strict';
 
-var ParallelCucumber = require('../lib/parallel_cucumber');
-var main = ParallelCucumber.Workers.Main();
+var ParallelCucumberWorker = require('../lib/parallel_cucumber_worker');
+var main = ParallelCucumberWorker.Cli.Main();
 main.start();
