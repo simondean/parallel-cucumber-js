@@ -14,4 +14,4 @@ module.exports = function() {
   this.Then(/^a post-condition passes$/, function(callback) {
     callback();
   });
-}
+};

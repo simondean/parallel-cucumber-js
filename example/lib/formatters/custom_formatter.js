@@ -1,7 +1,6 @@
-var ParallelCucumber = require('../../../lib/parallel_cucumber');
-var Debug = require('debug')('parallel-cucumber-js');
-
 var CustomFormatter = function(options) {
+  var ParallelCucumber = require('../../../lib/parallel_cucumber');
+
   var self = ParallelCucumber.Formatters.Formatter(options);
 
   self._firstFeature = true;

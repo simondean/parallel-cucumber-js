@@ -107,7 +107,7 @@ module.exports = function() {
         }
 
         args.push('-f');
-        args.push(formatterName);
+        args.push(formatterExpression);
       });
     }
 
@@ -168,7 +168,7 @@ module.exports = function() {
         throw e;
       }
 
-      callback("Syntax error in expected JSON: " + e);
+      callback('Syntax error in expected JSON: ' + e);
       return;
     }
 
@@ -182,7 +182,7 @@ module.exports = function() {
         throw e;
       }
 
-      callback("Syntax error in actual JSON: " + e)
+      callback('Syntax error in actual JSON: ' + e);
       return;
     }
 
@@ -329,10 +329,10 @@ function diffText(expectedText, actualText) {
 
 function normalizeJsonFeatureOrder(report) {
   report.sort(function(a, b) {
-    if (a.uri < b.uri) return -1;
-    if (a.uri > b.uri) return 1;
-    if (a.profile < b.profile) return -1;
-    if (a.profile > b.profile) return 1;
+    if (a.uri < b.uri) { return -1; }
+    if (a.uri > b.uri) { return 1; }
+    if (a.profile < b.profile) { return -1; }
+    if (a.profile > b.profile) { return 1; }
     return 0;
   });
 }
@@ -348,33 +348,33 @@ function normalizeMultiLineYaml(value) {
 
   events.sort(function(a, b) {
     if (a.scenario && b.scenario) {
-      if (a.uri < b.uri) return -1;
-      if (a.uri > b.uri) return 1;
-      if (a.profile < b.profile) return -1;
-      if (a.profile > b.profile) return 1;
+      if (a.uri < b.uri) { return -1; }
+      if (a.uri > b.uri) { return 1; }
+      if (a.profile < b.profile) { return -1; }
+      if (a.profile > b.profile) { return 1; }
       return 0;
     }
 
     if (a.feature && b.feature) {
-      if (a.uri < b.uri) return -1;
-      if (a.uri > b.uri) return 1;
-      if (a.profile < b.profile) return -1;
-      if (a.profile > b.profile) return 1;
+      if (a.uri < b.uri) { return -1; }
+      if (a.uri > b.uri) { return 1; }
+      if (a.profile < b.profile) { return -1; }
+      if (a.profile > b.profile) { return 1; }
       return 0;
     }
 
     if (a.summary && b.summary) {
-      if (a.status < b.status) return -1;
-      if (a.status > b.status) return 1;
+      if (a.status < b.status) { return -1; }
+      if (a.status > b.status) { return 1; }
       return 0;
     }
 
-    if (a.scenario) return -1;
-    if (b.scenario) return 1;
-    if (a.feature) return -1;
-    if (b.feature) return 1;
-    if (a.summary) return -1;
-    if (b.summary) return 1;
+    if (a.scenario) { return -1; }
+    if (b.scenario) { return 1; }
+    if (a.feature) { return -1; }
+    if (b.feature) { return 1; }
+    if (a.summary) { return -1; }
+    if (b.summary) { return 1; }
     return 0;
   });
 
@@ -382,7 +382,7 @@ function normalizeMultiLineYaml(value) {
 }
 
 function dumpMultiLineYaml(multiLineYaml) {
-  lines = [];
+  var lines = [];
 
   multiLineYaml.forEach(function(yaml) {
     lines.push(JSYAML.safeDump(yaml, { flowLevel: 0 }));
