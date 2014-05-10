@@ -221,16 +221,24 @@ module.exports = function() {
     expectedYaml = normalizeMultiLineYaml(expectedYaml);
     var actualYaml = normalizeMultiLineYaml(world.stdout);
 
+    var durationRegExp = /^\d{2}:\d{2}:\d{2}\.\d{3}$/;
+
     actualYaml.forEach(function(event) {
+      var item;
+
       if (event.scenario) {
-        if (typeof event.scenario.worker === 'number' && event.scenario.worker >= 0) {
-          event.scenario.worker = '{worker}';
-        }
+        item = event.scenario;
       }
       else if (event.feature) {
-        if (typeof event.feature.worker === 'number' && event.feature.worker >= 0) {
-          event.feature.worker = '{worker}';
-        }
+        item = event.feature;
+      }
+
+      if (typeof item.worker === 'number' && item.worker >= 0) {
+        item.worker = '{worker}';
+      }
+
+      if (typeof item.duration === 'string' && durationRegExp.test(item.duration)) {
+        item.duration = '{duration}';
       }
     });
 
