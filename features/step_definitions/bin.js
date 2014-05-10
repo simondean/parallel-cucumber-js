@@ -254,7 +254,7 @@ module.exports = function() {
     expectedYaml = dumpMultiLineYaml(expectedYaml);
     actualYaml = dumpMultiLineYaml(actualYaml);
 
-    var diffLines = diffText(expectedYaml, actualYaml);
+    var diffLines = diffText(actualYaml, expectedYaml);
 
     if (diffLines) {
       callback('Actual YAML did not match expected YAML:' + OS.EOL + diffLines);
@@ -272,7 +272,7 @@ module.exports = function() {
     expectedText = normalizeText(expectedText);
     var actualText = normalizeText(world.stdout);
 
-    var diffLines = diffText(expectedText, actualText);
+    var diffLines = diffText(actualText, expectedText);
 
     if (diffLines) {
       callback('Actual text did not match expected text:' + OS.EOL + diffLines);
