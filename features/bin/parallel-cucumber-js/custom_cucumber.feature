@@ -1,0 +1,25 @@
+Feature: Custom Cucumber
+
+  Scenario: Custom Cucumber
+    Given the '@passing' tag
+    And a 'json' formatter
+    And the './lib/custom_cucumber' custom version of Cucumber
+    When executing the parallel-cucumber-js bin
+    Then the exit code should be '0'
+    And stdout should contain JSON matching:
+    """
+      [
+        {
+          "custom_cucumber": true,
+          "id": "Passing",
+          "name": "Passing",
+          "description": "",
+          "line": 1,
+          "keyword": "Feature",
+          "uri": "{uri}/features/passing.feature",
+          "elements": [],
+          "profile": "default"
+        }
+      ]
+      """
+    And stderr should be empty

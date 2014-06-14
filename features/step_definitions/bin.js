@@ -41,25 +41,6 @@ module.exports = function() {
     callback();
   });
 
-  this.Given(/^a config file containing:$/, function(content, callback) {
-    if (isDryRun()) { return callback(); }
-
-    var world = this;
-
-    var configFilePath = 'tmp/ParallelCucumberfile.' + Math.random() + '.js';
-
-    FS.writeFile(configFilePath, content, function(err) {
-      if (err) {
-        callback(err);
-        return;
-      }
-
-      world.configFilePath = configFilePath;
-
-      callback();
-    });
-  });
-
   this.Given(/^a '(.*)' formatter$/, function(name, callback) {
     if (isDryRun()) { return callback(); }
 
@@ -76,12 +57,27 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^the '(.*)' custom version of Cucumber$/, function(path, callback) {
+    if (isDryRun()) { return callback(); }
+
+    var world = this;
+
+    world.customerCucumberPath = path;
+
+    callback();
+  });
+
   this.When(/^executing the parallel-cucumber-js bin$/, function(callback) {
     if (isDryRun()) { return callback(); }
 
     var world = this;
 
     var args = ['../bin/parallel-cucumber-js'];
+
+    if (world.customerCucumberPath) {
+      args.push('-c');
+      args.push(world.customerCucumberPath);
+    }
 
     if (world.tags) {
       args.push('-t');
@@ -109,11 +105,6 @@ module.exports = function() {
         args.push('-f');
         args.push(formatterExpression);
       });
-    }
-
-    if (world.configFilePath) {
-      args.push('-c');
-      args.push('../' + world.configFilePath);
     }
 
     world.child = ChildProcess.spawn('node', args, {
