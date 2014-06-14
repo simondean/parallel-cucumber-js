@@ -1,10 +1,11 @@
-Feature: Failing
+Feature: Dry run
 
-  Scenario: Failing
+  Scenario: Dry run does not execute step definitions
     Given the '@failing' tag
     And a 'json' formatter
+    And dry run mode
     When executing the parallel-cucumber-js bin
-    Then the exit code should be '1'
+    Then the exit code should be '0'
     And stdout should contain JSON matching:
     """
       [
@@ -45,9 +46,8 @@ Feature: Failing
                   "line": 6,
                   "keyword": "When ",
                   "result": {
-                    "error_message": "Failed",
                     "duration": "{duration}",
-                    "status": "failed"
+                    "status": "passed"
                   },
                   "match": {}
                 },
@@ -56,7 +56,8 @@ Feature: Failing
                   "line": 7,
                   "keyword": "Then ",
                   "result": {
-                    "status": "skipped"
+                    "duration": "{duration}",
+                    "status": "passed"
                   },
                   "match": {}
                 }

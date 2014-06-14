@@ -1,14 +1,13 @@
 var ChildProcess = require('child_process');
 var DeepDiff = require('deep-diff');
 var Diff = require('diff');
-var FS = require('fs');
 var OS = require('os');
 var StripColorCodes = require('stripcolorcodes');
 var JSYAML = require('js-yaml');
 
 module.exports = function() {
   this.Given(/^the '(.*)' tags?$/, function(tags, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -18,7 +17,7 @@ module.exports = function() {
   });
 
   this.Given(/^a profile called '(.*)'$/, function(name, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -32,7 +31,7 @@ module.exports = function() {
   });
 
   this.Given(/^the '(.*)' profile has the tags? '(.*)'$/, function(name, tags, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -42,7 +41,7 @@ module.exports = function() {
   });
 
   this.Given(/^a '(.*)' formatter$/, function(name, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -58,7 +57,7 @@ module.exports = function() {
   });
 
   this.Given(/^the '(.*)' custom version of Cucumber$/, function(path, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -67,8 +66,32 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^'(.*)' is required$/, function(path, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    if (!world.supportCodePaths) {
+      world.supportCodePaths = [];
+    }
+
+    world.supportCodePaths.push(path);
+
+    callback();
+  });
+
+  this.Given(/^dry run mode$/, function(callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    world.dryRun = true;
+
+    callback();
+  });
+
   this.When(/^executing the parallel-cucumber-js bin$/, function(callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -107,6 +130,17 @@ module.exports = function() {
       });
     }
 
+    if (world.supportCodePaths) {
+      world.supportCodePaths.forEach(function(supportCodePath) {
+        args.push('-r');
+        args.push(supportCodePath);
+      });
+    }
+
+    if (world.dryRun) {
+      args.push('-d');
+    }
+
     world.child = ChildProcess.spawn('node', args, {
       stdio: ['ignore', 'pipe', 'pipe'],
       cwd: 'example'
@@ -134,7 +168,7 @@ module.exports = function() {
   });
 
   this.Then(/^the exit code should be '(.*)'$/, function(exitCode, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -147,7 +181,7 @@ module.exports = function() {
   });
 
   this.Then(/^stdout should contain JSON matching:$/, function(expectedJson, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -205,7 +239,7 @@ module.exports = function() {
   });
 
   this.Then(/^stdout should contain new line separated YAML matching:$/, function(expectedYaml, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -256,7 +290,7 @@ module.exports = function() {
   });
 
   this.Then(/^stdout should contain text matching:$/, function(expectedText, callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -274,7 +308,7 @@ module.exports = function() {
   });
 
   this.Then(/^stderr should be empty$/, function(callback) {
-    if (isDryRun()) { return callback(); }
+    if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
@@ -286,10 +320,6 @@ module.exports = function() {
     }
   });
 };
-
-function isDryRun() {
-  return process.argv.indexOf('--dry-run') !== -1;
-}
 
 function diffText(expectedText, actualText) {
   var differences = Diff.diffLines(actualText, expectedText);
