@@ -35,7 +35,11 @@ module.exports = function() {
 
     var world = this;
 
-    world.profiles[name].tags = tags;
+    if (!world.profiles[name].tags) {
+      world.profiles[name].tags = [];
+    }
+
+    world.profiles[name].tags.push(tags);
 
     callback();
   });
@@ -110,8 +114,11 @@ module.exports = function() {
     if (world.profiles) {
       Object.keys(world.profiles).forEach(function(profileName) {
         var profile = world.profiles[profileName];
-        args.push('--profiles.' + profileName + '.tags');
-        args.push(profile.tags);
+
+        profile.tags.forEach(function(tags) {
+          args.push('--profiles.' + profileName + '.tags');
+          args.push(tags);
+        });
       });
     }
 
