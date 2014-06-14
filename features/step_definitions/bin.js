@@ -94,6 +94,20 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^the '(.*)' feature path$/, function(path, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    if (!world.featurePaths) {
+      world.featurePaths = [];
+    }
+
+    world.featurePaths.push(path);
+
+    callback();
+  });
+
   this.When(/^executing the parallel-cucumber-js bin$/, function(callback) {
     if (this.isDryRun()) { return callback(); }
 
@@ -146,6 +160,12 @@ module.exports = function() {
 
     if (world.dryRun) {
       args.push('-d');
+    }
+
+    if (world.featurePaths) {
+      world.featurePaths.forEach(function(featurePath) {
+        args.push(featurePath);
+      });
     }
 
     world.child = ChildProcess.spawn('node', args, {
