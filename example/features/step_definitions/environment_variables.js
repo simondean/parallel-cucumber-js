@@ -1,5 +1,5 @@
 module.exports = function() {
-  this.Given(/^the environment variable '(.*)' equals '(.*)'$/, function(name, expectedValue, callback) {
+  this.Then(/^the environment variable '(.*)' equals '(.*)'$/, function(name, expectedValue, callback) {
     if (this.isDryRun()) { return callback(); }
 
     var actualValue = process.env[name];

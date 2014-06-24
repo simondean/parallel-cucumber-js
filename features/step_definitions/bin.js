@@ -44,6 +44,24 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^the '(.*)' profile has the environment variable '(.*)' set to '(.*)'? '(.*)'$/, function(name, envName, envValue, tags, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    if (!world.profiles[name].tags) {
+      world.profiles[name].tags = [];
+    }
+
+    if (!world.profiles[name].env) {
+      world.profiles[name].env = {};
+    }
+
+    world.profiles[name].env[envName] = envValue;
+
+    callback();
+  });
+
   this.Given(/^a '(.*)' formatter$/, function(name, callback) {
     if (this.isDryRun()) { return callback(); }
 
@@ -115,10 +133,20 @@ module.exports = function() {
       Object.keys(world.profiles).forEach(function(profileName) {
         var profile = world.profiles[profileName];
 
-        profile.tags.forEach(function(tags) {
-          args.push('--profiles.' + profileName + '.tags');
-          args.push(tags);
-        });
+        if (profile.tags) {
+          profile.tags.forEach(function(tags) {
+            args.push('--profiles.' + profileName + '.tags');
+            args.push(tags);
+          });
+        }
+
+        if (profile.env) {
+          Object.keys(profile.env).forEach(function(envName) {
+            var envValue = profile.env[envName];
+            args.push('--profiles.' + profileName + '.env.' + envName);
+            args.push(envValue);
+          });
+        }
       });
     }
 

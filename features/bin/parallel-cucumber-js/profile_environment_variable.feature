@@ -10,16 +10,16 @@ Feature: Profile environment variable
     """
       [
         {
-          "id": "Profiles",
-          "name": "Profiles",
+          "id": "Profile-environment-variable",
+          "name": "Profile environment variable",
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/profiles.feature",
+          "uri": "{uri}/features/profile_environment_variable.feature",
           "elements": [
             {
               "name": "Profile environment variable",
-              "id": "Profiles;profile-environment-variable",
+              "id": "Profile-environment-variable;profile-environment-variable",
               "line": 4,
               "keyword": "Scenario",
               "description": "",
@@ -34,7 +34,7 @@ Feature: Profile environment variable
                 {
                   "name": "the environment variable 'PARALLEL_CUCUMBER_PROFILE' equals 'test_profile'",
                   "line": 5,
-                  "keyword": "Given ",
+                  "keyword": "Then ",
                   "result": {
                     "duration": "{duration}",
                     "status": "passed"
