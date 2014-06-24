@@ -9,6 +9,7 @@
 
 ### Fixes
 * Allow cucumber-js 0.4.x to be used (closes #2)
+* Error with progress formatter when a step has no result (closes #4)
 
 ## [v0.1.1](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.0...v0.1.1)
 
