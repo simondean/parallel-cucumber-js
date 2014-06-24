@@ -1,4 +1,10 @@
 # parallel-cucumber-js
+  [![Build Status](https://travis-ci.org/simondean/parallel-cucumber-js.png?branch=master)](https://travis-ci.org/simondean/parallel-cucumber-js)
+  [![Dependencies](https://david-dm.org/simondean/parallel-cucumber-js.png)](https://david-dm.org/simondean/parallel-cucumber-js)
+  [![Code Climate](https://codeclimate.com/github/simondean/parallel-cucumber-js.png)](https://codeclimate.com/github/simondean/parallel-cucumber-js)
+
+[![NPM](https://nodei.co/npm/parallel-cucumber.png?stars&downloads)](https://nodei.co/npm/parallel-cucumber/)
+[![NPM](https://nodei.co/npm-dl/parallel-cucumber.png)](https://nodei.co/npm/parallel-cucumber/)
 
 Executes Cucumber scenarios in parallel, reducing the amount of time tests take to execute.
 

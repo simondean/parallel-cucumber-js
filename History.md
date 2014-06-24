@@ -4,6 +4,9 @@
 
 ### [master (unreleased)](https://github.com/cucumber/cucumber-js/compare/v0.1.1...master)
 
+### New features
+* Use Travis CI for builds (closes #3)
+
 ### Fixes
 * Allow cucumber-js 0.4.x to be used (closes #2)
 

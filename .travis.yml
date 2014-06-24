@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+  - "0.11"
+  - "0.10"
+  - "0.8"
+  - "0.6"
+
+before_install:
+  - node --version
+  - npm --version
+
+install:
+  npm install
+  npm install cucumber
+
+matrix:
+  allow_failures:
+    - node_js: "0.11"
+
+notifications:
+  email:
+    - simon@simondean.org

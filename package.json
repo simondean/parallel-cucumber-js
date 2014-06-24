@@ -53,6 +53,9 @@
   "bin": {
     "parallel-cucumber-js": "./bin/parallel-cucumber-js"
   },
+  "scripts": {
+    "test": "bin/parallel-cucumber-js"
+  },
   "licenses": [
     {
       "type": "MIT",
