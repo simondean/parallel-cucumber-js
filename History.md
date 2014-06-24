@@ -1,5 +1,12 @@
 # parallel-cucumber changelog
 
+## [v0.1.x](https://github.com/cucumber/cucumber-js/compare/v0.1.0...master)
+
+### [master (unreleased)](https://github.com/cucumber/cucumber-js/compare/v0.1.1...master)
+
+### Fixes
+* Allow cucumber-js 0.4.x to be used (closes #2)
+
 ## [v0.1.1](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.0...v0.1.1)
 
 ### New features
