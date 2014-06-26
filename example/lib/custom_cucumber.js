@@ -34,6 +34,6 @@ Cucumber.Listener.JsonFormatter = function(options) {
   };
 
   return self;
-}
+};
 
 module.exports = Cucumber;

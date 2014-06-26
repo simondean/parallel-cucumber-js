@@ -121,8 +121,6 @@ module.exports = function() {
   this.Given(/^the environment variable '(.*)' is set to '(.*)'$/, function(name, value, callback) {
     if (this.isDryRun()) { return callback(); }
 
-    var world = this;
-
     process.env[name] = value;
 
     callback();
