@@ -44,14 +44,10 @@ module.exports = function() {
     callback();
   });
 
-  this.Given(/^the '(.*)' profile has the environment variable '(.*)' set to '(.*)'? '(.*)'$/, function(name, envName, envValue, tags, callback) {
+  this.Given(/^the '(.*)' profile has the environment variable '(.*)' set to '(.*)'$/, function(name, envName, envValue, callback) {
     if (this.isDryRun()) { return callback(); }
 
     var world = this;
-
-    if (!world.profiles[name].tags) {
-      world.profiles[name].tags = [];
-    }
 
     if (!world.profiles[name].env) {
       world.profiles[name].env = {};
@@ -74,6 +70,16 @@ module.exports = function() {
     world.formatters[name] = {
       type: name
     };
+
+    callback();
+  });
+
+  this.Given(/^'(.*)' workers?$/, function(count, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    world.workerCount = count;
 
     callback();
   });
@@ -108,6 +114,16 @@ module.exports = function() {
     var world = this;
 
     world.dryRun = true;
+
+    callback();
+  });
+
+  this.Given(/^the environment variable '(.*)' is set to '(.*)'$/, function(name, value, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    process.env[name] = value;
 
     callback();
   });
@@ -170,6 +186,11 @@ module.exports = function() {
         args.push('-r');
         args.push(supportCodePath);
       });
+    }
+
+    if (world.workerCount) {
+      args.push('-w');
+      args.push(world.workerCount);
     }
 
     if (world.dryRun) {
@@ -245,6 +266,8 @@ module.exports = function() {
       callback('Syntax error in actual JSON: ' + e);
       return;
     }
+
+    //console.log(JSON.stringify(actualJson, null, '  '));
 
     actualJson.forEach(function(feature) {
       if (typeof feature.uri === 'string') {

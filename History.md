@@ -6,6 +6,7 @@
 
 ### New features
 * Use Travis CI for builds (closes #3)
+* Setting environment variables on a profile (closes #6)
 
 ### Fixes
 * Allow cucumber-js 0.4.x to be used (closes #2)

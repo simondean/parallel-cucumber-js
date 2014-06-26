@@ -14,4 +14,17 @@ module.exports = function() {
       callback();
     }
   });
+
+  this.Then(/^the environment variable '(.*)' is not set$/, function(name, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var actualValue = process.env[name];
+
+    if (typeof actualValue !== 'undefined') {
+      callback('Expected environment variable to not be set but was set to \'' + actualValue + '\'');
+    }
+    else {
+      callback();
+    }
+  });
 };
