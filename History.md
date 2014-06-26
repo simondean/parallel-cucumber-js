@@ -4,6 +4,9 @@
 
 ### [master (unreleased)](https://github.com/cucumber/cucumber-js/compare/v0.1.2...master)
 
+#### New features
+* Updated dependencies
+
 ### [v0.1.2](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.1...v0.1.2)
 
 #### New features
