@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 
     shell: {
       features: {
-        command: 'parallel-cucumber-js --workers 4'
+        command: 'node bin/parallel-cucumber-js --workers 4'
       }
     }
 
@@ -32,6 +32,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('features', ['shell:features']);
 
-  grunt.registerTask('default', ['jshint', 'features']);
+  grunt.registerTask('test', ['jshint', 'features']);
+  grunt.registerTask('default', ['test']);
 
 };
