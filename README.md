@@ -75,6 +75,15 @@ $ node_modules/.bin/parallel-cucumber-js --profile.desktop.tags ~@mobile-only --
 parallel-cucumber sets an environment variable called PARALLEL_CUCUMBER_PROFILE which can be used within the
 Cucumber step defs and support code to determine which profile is currently executing.
 
+### Environment variables
+
+Environment variables can be specified for a profile and those environment variables will be set when the Cucumber scenarios
+are executed for the profile:
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js --profile.desktop.env.EXAMPLE_NAME example_value --profile.desktop.env.EXAMPLE_NAME_2 example_value_2
+```
+
 ### Formats
 
 Two output formats are supported: json and progress.  The progress format is the default.  The `-f` argument is used
