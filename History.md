@@ -1,8 +1,11 @@
 # parallel-cucumber changelog
 
-## [v0.1.x](https://github.com/cucumber/cucumber-js/compare/v0.1.0...master)
+## [v0.1.x](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.0...master)
 
-### [master (unreleased)](https://github.com/cucumber/cucumber-js/compare/v0.1.3...master)
+### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.3...master)
+
+#### New features
+* Removed the -c command line argument (closes #7)
 
 ### [v0.1.3](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.2...v0.1.3)
 

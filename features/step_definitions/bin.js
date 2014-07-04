@@ -134,7 +134,7 @@ module.exports = function() {
     var args = ['../bin/parallel-cucumber-js'];
 
     if (world.customerCucumberPath) {
-      args.push('-c');
+      args.push('--cucumber');
       args.push(world.customerCucumberPath);
     }
 
