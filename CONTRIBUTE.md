@@ -2,7 +2,6 @@
 
 Here are the steps to follow when making a release.
 
-* Update development status in `README.md`, if relevant
 * Update `History.md`
 * Bump version in `package.json`
 * Add new contributors to `package.json`, if any
