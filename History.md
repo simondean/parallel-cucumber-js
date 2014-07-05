@@ -7,6 +7,9 @@
 #### New features
 * Removed the -c command line argument (closes #7)
 
+#### Fixes
+* BeforeFeatures and AfterFeatures events should not fire for every feature (closes #8)
+
 ### [v0.1.3](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.2...v0.1.3)
 
 #### New features

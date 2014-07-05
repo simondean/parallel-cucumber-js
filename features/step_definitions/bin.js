@@ -6,6 +6,20 @@ var StripColorCodes = require('stripcolorcodes');
 var JSYAML = require('js-yaml');
 
 module.exports = function() {
+  this.Given(/^the '(.*)' feature$/, function(feature, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    if (!world.features) {
+      world.features = [];
+    }
+
+    world.features.push('features/' + feature + '.feature');
+
+    callback();
+  });
+
   this.Given(/^the '(.*)' tags?$/, function(tags, callback) {
     if (this.isDryRun()) { return callback(); }
 
@@ -121,7 +135,13 @@ module.exports = function() {
   this.Given(/^the environment variable '(.*)' is set to '(.*)'$/, function(name, value, callback) {
     if (this.isDryRun()) { return callback(); }
 
-    process.env[name] = value;
+    var world = this;
+
+    if (!world.env) {
+      world.env = {};
+    }
+
+    world.env[name] = value;
 
     callback();
   });
@@ -146,12 +166,15 @@ module.exports = function() {
     if (world.profiles) {
       Object.keys(world.profiles).forEach(function(profileName) {
         var profile = world.profiles[profileName];
+        var profileDefined = false;
 
         if (profile.tags) {
           profile.tags.forEach(function(tags) {
             args.push('--profiles.' + profileName + '.tags');
             args.push(tags);
           });
+
+          profileDefined = true;
         }
 
         if (profile.env) {
@@ -160,6 +183,12 @@ module.exports = function() {
             args.push('--profiles.' + profileName + '.env.' + envName);
             args.push(envValue);
           });
+
+          profileDefined = true;
+        }
+
+        if (!profileDefined) {
+          args.push('--profiles.' + profileName);
         }
       });
     }
@@ -195,9 +224,30 @@ module.exports = function() {
       args.push('-d');
     }
 
+    if (world.features) {
+      world.features.forEach(function(feature) {
+        args.push(feature);
+      });
+    }
+
+    if (!world.env) {
+      world.env = {};
+    }
+
+    var env = {};
+
+    Object.keys(process.env).forEach(function(envName) {
+      env[envName] = process.env[envName];
+    });
+
+    Object.keys(world.env).forEach(function(envName) {
+      env[envName] = world.env[envName];
+    });
+
     world.child = ChildProcess.spawn('node', args, {
       stdio: ['ignore', 'pipe', 'pipe'],
-      cwd: 'example'
+      cwd: 'example',
+      env: env
     });
 
     var stdout = [];
@@ -234,7 +284,7 @@ module.exports = function() {
     }
   });
 
-  this.Then(/^stdout should contain JSON matching:$/, function(expectedJson, callback) {
+  this.Then(/^(.*) should contain JSON matching:$/, function(stream, expectedJson, callback) {
     if (this.isDryRun()) { return callback(); }
 
     var world = this;
@@ -247,21 +297,21 @@ module.exports = function() {
         throw e;
       }
 
-      callback('Syntax error in expected JSON: ' + e);
+      callback('Syntax error in expected JSON: ' + e + OS.EOL + 'Expected JSON: ' + expectedJson);
       return;
     }
 
-    var actualJson;
+    var actualJson = world[stream];
 
     try {
-      actualJson = JSON.parse(world.stdout);
+      actualJson = JSON.parse(actualJson);
     }
     catch (e) {
       if (!(e instanceof SyntaxError)) {
         throw e;
       }
 
-      callback('Syntax error in actual JSON: ' + e);
+      callback('Syntax error in actual JSON: ' + e + OS.EOL + 'Actual JSON: ' + actualJson);
       return;
     }
 
@@ -294,13 +344,13 @@ module.exports = function() {
     }
   });
 
-  this.Then(/^stdout should contain new line separated YAML matching:$/, function(expectedYaml, callback) {
+  this.Then(/^(.*) should contain new line separated YAML matching:$/, function(stream, expectedYaml, callback) {
     if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
     expectedYaml = normalizeMultiLineYaml(expectedYaml);
-    var actualYaml = normalizeMultiLineYaml(world.stdout);
+    var actualYaml = normalizeMultiLineYaml(world[stream]);
 
     var zeroOrGreaterNumberKeys = ['worker'];
     var durationKeys = ['duration', 'duration', 'elapsed', 'saved'];
@@ -335,7 +385,7 @@ module.exports = function() {
     expectedYaml = dumpMultiLineYaml(expectedYaml);
     actualYaml = dumpMultiLineYaml(actualYaml);
 
-    var diffLines = diffText(actualYaml, expectedYaml);
+    var diffLines = diffText(expectedYaml, actualYaml);
 
     if (diffLines) {
       callback('Actual YAML did not match expected YAML:' + OS.EOL + diffLines);
@@ -345,15 +395,15 @@ module.exports = function() {
     }
   });
 
-  this.Then(/^stdout should contain text matching:$/, function(expectedText, callback) {
+  this.Then(/^(.*) should contain text matching:$/, function(stream, expectedText, callback) {
     if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
     expectedText = normalizeText(expectedText);
-    var actualText = normalizeText(world.stdout);
+    var actualText = normalizeText(world[stream]);
 
-    var diffLines = diffText(actualText, expectedText);
+    var diffLines = diffText(expectedText, actualText);
 
     if (diffLines) {
       callback('Actual text did not match expected text:' + OS.EOL + diffLines);
@@ -363,13 +413,15 @@ module.exports = function() {
     }
   });
 
-  this.Then(/^stderr should be empty$/, function(callback) {
+  this.Then(/^(.*) should be empty$/, function(stream, callback) {
     if (this.isDryRun()) { return callback(); }
 
     var world = this;
 
-    if (world.stderr.length > 0) {
-      callback('Expected stderr to be empty but it was not:' + OS.EOL + world.stderr);
+    var actualText = world[stream];
+
+    if (actualText.length > 0) {
+      callback('Expected stderr to be empty but it was not:' + OS.EOL + actualText);
     }
     else {
       callback();
@@ -378,30 +430,23 @@ module.exports = function() {
 };
 
 function diffText(expectedText, actualText) {
-  var differences = Diff.diffLines(actualText, expectedText);
+  var differences = Diff.diffLines(expectedText, actualText);
 
-  var lines = [];
   var different = false;
 
   differences.forEach(function(part) {
-    var prefix;
-
-    if (part.added) {
-      prefix = '++';
+    if (part.added || part.removed) {
       different = true;
     }
-    else if (part.removed) {
-      prefix = '--';
-      different = true;
-    }
-    else {
-      prefix = '';
-    }
-
-    lines.push(prefix + part.value);
   });
 
-  return different ? lines.join(OS.EOL) : undefined;
+  if (!different) {
+    return undefined;
+  }
+
+  var unifiedDiff = Diff.createPatch('text', expectedText, actualText);
+
+  return unifiedDiff;
 }
 
 function normalizeJsonFeatureOrder(report) {
