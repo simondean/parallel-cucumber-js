@@ -246,7 +246,7 @@ module.exports = function() {
 
     world.child = ChildProcess.spawn('node', args, {
       stdio: ['ignore', 'pipe', 'pipe'],
-      cwd: 'example',
+      cwd: 'test_assets',
       env: env
     });
 
