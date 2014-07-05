@@ -9,6 +9,7 @@
 * Included the tests in the npm package
 * Restructured the tests
 * The tests are less reliant on tags
+* Additional tests for tags
 
 #### Fixes
 * BeforeFeatures and AfterFeatures events should not fire for every feature (closes #8)
