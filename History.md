@@ -6,6 +6,7 @@
 
 #### New features
 * Removed the -c command line argument (closes #7)
+* Included the tests in the npm package
 
 #### Fixes
 * BeforeFeatures and AfterFeatures events should not fire for every feature (closes #8)
