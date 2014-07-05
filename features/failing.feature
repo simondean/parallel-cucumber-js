@@ -1,7 +1,7 @@
 Feature: Failing
 
   Scenario: Failing
-    Given the '@failing' tag
+    Given the 'failing' feature
     And a 'json' formatter
     When executing the parallel-cucumber-js bin
     Then the exit code should be '1'
@@ -19,20 +19,14 @@ Feature: Failing
             {
               "name": "Failing",
               "id": "Failing;failing",
-              "line": 4,
+              "line": 3,
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
-              "tags": [
-                {
-                  "name": "@failing",
-                  "line": 3
-                }
-              ],
               "steps": [
                 {
                   "name": "a passing pre-condition",
-                  "line": 5,
+                  "line": 4,
                   "keyword": "Given ",
                   "result": {
                     "duration": "{duration}",
@@ -42,7 +36,7 @@ Feature: Failing
                 },
                 {
                   "name": "a failing action is executed",
-                  "line": 6,
+                  "line": 5,
                   "keyword": "When ",
                   "result": {
                     "error_message": "Failed",
@@ -53,7 +47,7 @@ Feature: Failing
                 },
                 {
                   "name": "a post-condition passes",
-                  "line": 7,
+                  "line": 6,
                   "keyword": "Then ",
                   "result": {
                     "status": "skipped"

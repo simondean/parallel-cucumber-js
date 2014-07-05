@@ -1,7 +1,6 @@
 var ChildProcess = require('child_process');
 var DeepDiff = require('deep-diff');
 var Diff = require('diff');
-var OS = require('os');
 var StripColorCodes = require('stripcolorcodes');
 var JSYAML = require('js-yaml');
 
@@ -16,6 +15,20 @@ module.exports = function() {
     }
 
     world.features.push('features/' + feature + '.feature');
+
+    callback();
+  });
+
+  this.Given(/^the '(.*)' features$/, function(features, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    if (!world.features) {
+      world.features = [];
+    }
+
+    world.features.push('features/' + features + '/');
 
     callback();
   });
@@ -228,6 +241,9 @@ module.exports = function() {
       world.features.forEach(function(feature) {
         args.push(feature);
       });
+
+      args.push('-r');
+      args.push('features/');
     }
 
     if (!world.env) {
@@ -297,7 +313,7 @@ module.exports = function() {
         throw e;
       }
 
-      callback('Syntax error in expected JSON: ' + e + OS.EOL + 'Expected JSON: ' + expectedJson);
+      callback({ message: 'Syntax error in expected JSON', error: e, expectedJson: expectedJson });
       return;
     }
 
@@ -311,7 +327,7 @@ module.exports = function() {
         throw e;
       }
 
-      callback('Syntax error in actual JSON: ' + e + OS.EOL + 'Actual JSON: ' + actualJson);
+      callback({ message: 'Syntax error in actual JSON', error: e, actualJson: actualJson });
       return;
     }
 
@@ -322,13 +338,15 @@ module.exports = function() {
         feature.uri = feature.uri.replace(/^.*[\\\/]features[\\\/]/i, '{uri}/features/').replace('\\', '/');
       }
 
-      feature.elements.forEach(function(element) {
-        element.steps.forEach(function(step) {
-          if (typeof step.result.duration === 'number' && step.result.duration > 0) {
-            step.result.duration = '{duration}';
-          }
+      if (feature.elements) {
+        feature.elements.forEach(function(element) {
+          element.steps.forEach(function(step) {
+            if (typeof step.result.duration === 'number' && step.result.duration > 0) {
+              step.result.duration = '{duration}';
+            }
+          });
         });
-      });
+      }
     });
 
     normalizeJsonFeatureOrder(expectedJson);
@@ -337,7 +355,7 @@ module.exports = function() {
     var differences = DeepDiff.diff(actualJson, expectedJson);
 
     if (differences) {
-      callback('Actual JSON did not match expected JSON:' + OS.EOL + JSON.stringify(differences, null, 2));
+      callback({ message: 'Actual JSON did not match expected JSON', differences: differences });
     }
     else {
       callback();
@@ -385,10 +403,10 @@ module.exports = function() {
     expectedYaml = dumpMultiLineYaml(expectedYaml);
     actualYaml = dumpMultiLineYaml(actualYaml);
 
-    var diffLines = diffText(expectedYaml, actualYaml);
+    var differences = diffText(expectedYaml, actualYaml);
 
-    if (diffLines) {
-      callback('Actual YAML did not match expected YAML:' + OS.EOL + diffLines);
+    if (differences) {
+      callback({ message: 'Actual YAML did not match expected YAML', differences: differences });
     }
     else {
       callback();
@@ -403,10 +421,10 @@ module.exports = function() {
     expectedText = normalizeText(expectedText);
     var actualText = normalizeText(world[stream]);
 
-    var diffLines = diffText(expectedText, actualText);
+    var differences = diffText(expectedText, actualText);
 
-    if (diffLines) {
-      callback('Actual text did not match expected text:' + OS.EOL + diffLines);
+    if (differences) {
+      callback({ messages: 'Actual text did not match expected text', differences: differences });
     }
     else {
       callback();
@@ -421,7 +439,7 @@ module.exports = function() {
     var actualText = world[stream];
 
     if (actualText.length > 0) {
-      callback('Expected stderr to be empty but it was not:' + OS.EOL + actualText);
+      callback({ message: 'Expected stderr to be empty but it was not', actualText: actualText });
     }
     else {
       callback();

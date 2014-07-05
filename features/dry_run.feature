@@ -1,7 +1,7 @@
 Feature: Dry run
 
   Scenario: Dry run does not execute step definitions
-    Given the '@failing' tag
+    Given the 'failing' feature
     And a 'json' formatter
     And dry run mode
     When executing the parallel-cucumber-js bin
@@ -20,20 +20,14 @@ Feature: Dry run
             {
               "name": "Failing",
               "id": "Failing;failing",
-              "line": 4,
+              "line": 3,
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
-              "tags": [
-                {
-                  "name": "@failing",
-                  "line": 3
-                }
-              ],
               "steps": [
                 {
                   "name": "a passing pre-condition",
-                  "line": 5,
+                  "line": 4,
                   "keyword": "Given ",
                   "result": {
                     "duration": "{duration}",
@@ -43,7 +37,7 @@ Feature: Dry run
                 },
                 {
                   "name": "a failing action is executed",
-                  "line": 6,
+                  "line": 5,
                   "keyword": "When ",
                   "result": {
                     "duration": "{duration}",
@@ -53,7 +47,7 @@ Feature: Dry run
                 },
                 {
                   "name": "a post-condition passes",
-                  "line": 7,
+                  "line": 6,
                   "keyword": "Then ",
                   "result": {
                     "duration": "{duration}",
@@ -69,4 +63,3 @@ Feature: Dry run
       ]
       """
     And stderr should be empty
-

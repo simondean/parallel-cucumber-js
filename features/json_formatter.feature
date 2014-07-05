@@ -1,7 +1,7 @@
 Feature: JSON formatter
 
   Scenario: JSON formatter
-    Given the '@passing' tag
+    Given the 'passing' feature
     And a 'json' formatter
     When executing the parallel-cucumber-js bin
     Then the exit code should be '0'
@@ -19,20 +19,14 @@ Feature: JSON formatter
             {
               "name": "Passing",
               "id": "Passing;passing",
-              "line": 4,
+              "line": 3,
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
-              "tags": [
-                {
-                  "name": "@passing",
-                  "line": 3
-                }
-              ],
               "steps": [
                 {
                   "name": "a passing pre-condition",
-                  "line": 5,
+                  "line": 4,
                   "keyword": "Given ",
                   "result": {
                     "duration": "{duration}",
@@ -42,7 +36,7 @@ Feature: JSON formatter
                 },
                 {
                   "name": "a passing action is executed",
-                  "line": 6,
+                  "line": 5,
                   "keyword": "When ",
                   "result": {
                     "duration": "{duration}",
@@ -52,7 +46,7 @@ Feature: JSON formatter
                 },
                 {
                   "name": "a post-condition passes",
-                  "line": 7,
+                  "line": 6,
                   "keyword": "Then ",
                   "result": {
                     "duration": "{duration}",

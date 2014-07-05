@@ -1,7 +1,8 @@
 Feature: Parallel
 
   Scenario: Parallel
-    Given a profile called 'blue'
+    Given the 'parallel' features
+    And a profile called 'blue'
     And the 'blue' profile has the tag '@blue'
     And a profile called 'red'
     And the 'red' profile has the tag '@red'
@@ -17,7 +18,7 @@ Feature: Parallel
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/colours/blue.feature",
+          "uri": "{uri}/features/parallel/blue.feature",
           "elements": [
             {
               "name": "Blue",
@@ -54,7 +55,7 @@ Feature: Parallel
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/colours/purple.feature",
+          "uri": "{uri}/features/parallel/purple.feature",
           "elements": [
             {
               "name": "Purple",
@@ -95,7 +96,7 @@ Feature: Parallel
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/colours/purple.feature",
+          "uri": "{uri}/features/parallel/purple.feature",
           "elements": [
             {
               "name": "Purple",
@@ -136,7 +137,7 @@ Feature: Parallel
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/colours/red.feature",
+          "uri": "{uri}/features/parallel/red.feature",
           "elements": [
             {
               "name": "Red",
@@ -172,7 +173,8 @@ Feature: Parallel
     And stderr should be empty
 
   Scenario: Parallel, combining tags with ANDs and ORs
-    Given a profile called 'purple'
+    Given the 'parallel' features
+    And a profile called 'purple'
     And the 'purple' profile has the tag '@blue'
     And the 'purple' profile has the tag '@red'
     And a profile called 'red'
@@ -190,7 +192,7 @@ Feature: Parallel
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/colours/purple.feature",
+          "uri": "{uri}/features/parallel/purple.feature",
           "elements": [
             {
               "name": "Purple",
@@ -231,7 +233,7 @@ Feature: Parallel
           "description": "",
           "line": 1,
           "keyword": "Feature",
-          "uri": "{uri}/features/colours/red.feature",
+          "uri": "{uri}/features/parallel/red.feature",
           "elements": [
             {
               "name": "Red",

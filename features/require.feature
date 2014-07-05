@@ -1,7 +1,7 @@
 Feature: Require
 
   Scenario: Require one path
-    Given the '@passing' tag
+    Given the 'passing' feature
     And a 'json' formatter
     And './features/' is required
     When executing the parallel-cucumber-js bin
@@ -20,20 +20,14 @@ Feature: Require
             {
               "name": "Passing",
               "id": "Passing;passing",
-              "line": 4,
+              "line": 3,
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
-              "tags": [
-                {
-                  "name": "@passing",
-                  "line": 3
-                }
-              ],
               "steps": [
                 {
                   "name": "a passing pre-condition",
-                  "line": 5,
+                  "line": 4,
                   "keyword": "Given ",
                   "result": {
                     "duration": "{duration}",
@@ -43,7 +37,7 @@ Feature: Require
                 },
                 {
                   "name": "a passing action is executed",
-                  "line": 6,
+                  "line": 5,
                   "keyword": "When ",
                   "result": {
                     "duration": "{duration}",
@@ -53,7 +47,7 @@ Feature: Require
                 },
                 {
                   "name": "a post-condition passes",
-                  "line": 7,
+                  "line": 6,
                   "keyword": "Then ",
                   "result": {
                     "duration": "{duration}",
@@ -71,7 +65,7 @@ Feature: Require
     And stderr should be empty
 
   Scenario: Require two paths
-    Given the '@passing' tag
+    Given the 'passing' feature
     And a 'json' formatter
     And './features/support/' is required
     And './features/step_definitions/' is required
@@ -91,20 +85,14 @@ Feature: Require
             {
               "name": "Passing",
               "id": "Passing;passing",
-              "line": 4,
+              "line": 3,
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
-              "tags": [
-                {
-                  "name": "@passing",
-                  "line": 3
-                }
-              ],
               "steps": [
                 {
                   "name": "a passing pre-condition",
-                  "line": 5,
+                  "line": 4,
                   "keyword": "Given ",
                   "result": {
                     "duration": "{duration}",
@@ -114,7 +102,7 @@ Feature: Require
                 },
                 {
                   "name": "a passing action is executed",
-                  "line": 6,
+                  "line": 5,
                   "keyword": "When ",
                   "result": {
                     "duration": "{duration}",
@@ -124,7 +112,7 @@ Feature: Require
                 },
                 {
                   "name": "a post-condition passes",
-                  "line": 7,
+                  "line": 6,
                   "keyword": "Then ",
                   "result": {
                     "duration": "{duration}",
@@ -140,4 +128,3 @@ Feature: Require
       ]
       """
     And stderr should be empty
-

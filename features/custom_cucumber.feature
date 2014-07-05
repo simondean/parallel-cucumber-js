@@ -1,7 +1,7 @@
 Feature: Custom Cucumber
 
   Scenario: Custom Cucumber
-    Given the '@passing' tag
+    Given the 'passing' feature
     And a 'json' formatter
     And the './lib/custom_cucumber' custom version of Cucumber
     When executing the parallel-cucumber-js bin

@@ -1,7 +1,7 @@
 Feature: Progress formatter
 
   Scenario: Progress formatter
-    Given the '@passing' tag
+    Given the 'passing' feature
     And a 'progress' formatter
     When executing the parallel-cucumber-js bin
     Then the exit code should be '0'
@@ -14,7 +14,7 @@ Feature: Progress formatter
     And stderr should be empty
 
   Scenario: Progress formatter with undefined step
-    Given the '@undefined' tag
+    Given the 'undefined' feature
     And a 'progress' formatter
     When executing the parallel-cucumber-js bin
     Then the exit code should be '0'

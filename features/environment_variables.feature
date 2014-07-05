@@ -1,7 +1,8 @@
 Feature: Environment variables
 
   Scenario: Environment variables
-    Given a profile called 'test_profile_1'
+    Given the 'environment_variables' feature
+    And a profile called 'test_profile_1'
     And the 'test_profile_1' profile has the tag '@no-environment-variable'
     And a profile called 'test_profile_2'
     And the 'test_profile_2' profile has the tag '@environment-variable'

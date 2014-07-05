@@ -1,8 +1,8 @@
 Feature: Profile environment variable
 
   Scenario: Profile environment variable
-    Given a profile called 'test_profile'
-    And the 'test_profile' profile has the tag '@profile-environment-variable'
+    Given a 'profile_environment_variable' feature
+    And a profile called 'test_profile'
     And a 'json' formatter
     When executing the parallel-cucumber-js bin
     Then the exit code should be '0'
@@ -24,12 +24,6 @@ Feature: Profile environment variable
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
-              "tags": [
-                {
-                  "name": "@profile-environment-variable",
-                  "line": 3
-                }
-              ],
               "steps": [
                 {
                   "name": "the environment variable 'PARALLEL_CUCUMBER_PROFILE' equals 'test_profile'",
