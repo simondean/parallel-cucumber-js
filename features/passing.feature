@@ -57,7 +57,8 @@ Feature: Passing
               ]
             }
           ],
-          "profile": "default"
+          "profile": "default",
+          "retry": 0
         }
       ]
       """

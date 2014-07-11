@@ -18,7 +18,8 @@ Feature: Custom Cucumber
           "keyword": "Feature",
           "uri": "{uri}/features/passing.feature",
           "elements": [],
-          "profile": "default"
+          "profile": "default",
+          "retry": 0
         }
       ]
       """

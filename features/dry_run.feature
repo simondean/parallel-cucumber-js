@@ -58,7 +58,8 @@ Feature: Dry run
               ]
             }
           ],
-          "profile": "default"
+          "profile": "default",
+          "retry": 0
         }
       ]
       """

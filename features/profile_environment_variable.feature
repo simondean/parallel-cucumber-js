@@ -38,7 +38,8 @@ Feature: Profile environment variable
               ]
             }
           ],
-          "profile": "test_profile"
+          "profile": "test_profile",
+          "retry": 0
         }
       ]
       """

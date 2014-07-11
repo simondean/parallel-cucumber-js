@@ -51,7 +51,8 @@ Feature: Environment variables
               ]
             }
           ],
-          "profile": "test_profile_1"
+          "profile": "test_profile_1",
+          "retry": 0
         },
         {
           "id": "Environment-variables",
@@ -88,7 +89,8 @@ Feature: Environment variables
               ]
             }
           ],
-          "profile": "test_profile_2"
+          "profile": "test_profile_2",
+          "retry": 0
         },
         {
           "id": "Environment-variables",
@@ -125,7 +127,8 @@ Feature: Environment variables
               ]
             }
           ],
-          "profile": "test_profile_3"
+          "profile": "test_profile_3",
+          "retry": 0
         }
       ]
       """
@@ -182,7 +185,8 @@ Feature: Environment variables
               ]
             }
           ],
-          "profile": "test_profile_1"
+          "profile": "test_profile_1",
+          "retry": 0
         },
         {
           "id": "Environment-variables",
@@ -219,7 +223,8 @@ Feature: Environment variables
               ]
             }
           ],
-          "profile": "test_profile_2"
+          "profile": "test_profile_2",
+          "retry": 0
         },
         {
           "id": "Environment-variables",
@@ -256,7 +261,8 @@ Feature: Environment variables
               ]
             }
           ],
-          "profile": "test_profile_3"
+          "profile": "test_profile_3",
+          "retry": 0
         }
       ]
       """

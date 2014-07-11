@@ -47,7 +47,8 @@ Feature: Parallel
               ]
             }
           ],
-          "profile": "blue"
+          "profile": "blue",
+          "retry": 0
         },
         {
           "id": "Purple",
@@ -88,7 +89,8 @@ Feature: Parallel
               ]
             }
           ],
-          "profile": "red"
+          "profile": "red",
+          "retry": 0
         },
         {
           "id": "Purple",
@@ -129,7 +131,8 @@ Feature: Parallel
               ]
             }
           ],
-          "profile": "blue"
+          "profile": "blue",
+          "retry": 0
         },
         {
           "id": "Red",
@@ -166,7 +169,8 @@ Feature: Parallel
               ]
             }
           ],
-          "profile": "red"
+          "profile": "red",
+          "retry": 0
         }
       ]
       """
@@ -225,7 +229,8 @@ Feature: Parallel
               ]
             }
           ],
-          "profile": "purple"
+          "profile": "purple",
+          "retry": 0
         },
         {
           "id": "Red",
@@ -262,7 +267,8 @@ Feature: Parallel
               ]
             }
           ],
-          "profile": "red"
+          "profile": "red",
+          "retry": 0
         }
       ]
       """

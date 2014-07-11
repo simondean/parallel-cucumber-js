@@ -4,6 +4,9 @@
 
 ### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.4...master)
 
+#### New features
+* Retry failed features (closes #11)
+
 ### [v0.1.4](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.3...v0.1.4)
 
 #### New features

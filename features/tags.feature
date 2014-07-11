@@ -44,7 +44,8 @@ Feature: Tags
               ]
             }
           ],
-          "profile": "default"
+          "profile": "default",
+          "retry": 0
         }
       ]
       """
@@ -99,7 +100,8 @@ Feature: Tags
               ]
             }
           ],
-          "profile": "default"
+          "profile": "default",
+          "retry": 0
         }
       ]
       """

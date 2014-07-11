@@ -159,6 +159,16 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^'(.*)' max retries$/, function(maxRetries, callback) {
+    if (this.isDryRun()) { return callback(); }
+
+    var world = this;
+
+    world.maxRetries = maxRetries;
+
+    callback();
+  });
+
   this.When(/^executing the parallel-cucumber-js bin$/, function(callback) {
     if (this.isDryRun()) { return callback(); }
 
@@ -235,6 +245,11 @@ module.exports = function() {
 
     if (world.dryRun) {
       args.push('-d');
+    }
+
+    if (world.maxRetries) {
+      args.push('--max-retries');
+      args.push(world.maxRetries);
     }
 
     if (world.features) {
