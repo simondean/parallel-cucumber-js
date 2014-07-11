@@ -8,7 +8,7 @@
     "parallel",
     "scale"
   ],
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "http://github.com/simondean/parallel-cucumber-js",
   "author": { 
     "name" : "Simon Dean",
