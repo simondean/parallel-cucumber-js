@@ -4,6 +4,9 @@
 
 ### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.5...master)
 
+#### Fixes
+* Retries should not fail when an element in the report does not have an id
+
 ### [v0.1.5](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.4...v0.1.5)
 
 #### New features
