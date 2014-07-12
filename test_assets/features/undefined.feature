@@ -1,4 +1,4 @@
 Feature: Undefined
 
   Scenario: Undefined
-    When a undefined action is executed
+    When an undefined action is executed

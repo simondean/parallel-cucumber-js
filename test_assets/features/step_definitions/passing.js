@@ -11,12 +11,6 @@ module.exports = function() {
     callback();
   });
 
-  this.When(/^a failing action is executed$/, function(callback) {
-    if (this.isDryRun()) { return callback(); }
-
-    callback('Failed');
-  });
-
   this.When(/^an action is executed that passes on retry '(.*)'$/, function(retryCount, callback) {
     if (this.isDryRun()) { return callback(); }
 
