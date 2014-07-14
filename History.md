@@ -2,7 +2,9 @@
 
 ## [v0.1.x](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.0...master)
 
-### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.6...master)
+### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.7...master)
+
+### [v0.1.7](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.6...v0.1.7)
 
 #### New features
 * Additional tests for retries
