@@ -134,8 +134,8 @@ Feature: Retries
           "retry": 0
         },
         {
-          "id": "Retries-retry-1",
-          "name": "Retries",
+          "id": "Retries",
+          "name": "Retries - retry 1",
           "description": "",
           "line": 1,
           "keyword": "Feature",
@@ -143,7 +143,7 @@ Feature: Retries
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries-retry-1;retries",
+              "id": "Retries;retries",
               "line": 3,
               "keyword": "Scenario",
               "description": "",
@@ -213,8 +213,8 @@ Feature: Retries
           "retry": 0
         },
         {
-          "id": "Retries-retry-1",
-          "name": "Retries",
+          "id": "Retries",
+          "name": "Retries - retry 1",
           "description": "",
           "line": 1,
           "keyword": "Feature",
@@ -222,7 +222,7 @@ Feature: Retries
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries-retry-1;retries",
+              "id": "Retries;retries",
               "line": 3,
               "keyword": "Scenario",
               "description": "",
@@ -246,8 +246,8 @@ Feature: Retries
           "retry": 1
         },
         {
-          "id": "Retries-retry-2",
-          "name": "Retries",
+          "id": "Retries",
+          "name": "Retries - retry 2",
           "description": "",
           "line": 1,
           "keyword": "Feature",
@@ -255,7 +255,7 @@ Feature: Retries
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries-retry-2;retries",
+              "id": "Retries;retries",
               "line": 3,
               "keyword": "Scenario",
               "description": "",

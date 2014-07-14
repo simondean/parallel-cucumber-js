@@ -6,6 +6,7 @@
 
 #### New features
 * Additional tests for retries
+* Removed retry count from feature and scenario ids and added it to the feature names
 
 ### [v0.1.6](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.5...v0.1.6)
 
