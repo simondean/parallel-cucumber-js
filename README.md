@@ -49,7 +49,11 @@ parallel-cucumber-js can be ran from a terminal as follows:
 $ node_modules/.bin/parallel-cucumber-js
 ```
 
-By default parallel-cucumber will look for features files under a directory called `./features`
+By default parallel-cucumber will look for features files under a directory called `./features`, to look elsewhere proceed as follow :
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js path/to/features
+```
 
 ### Number of Workers
 
