@@ -8,14 +8,18 @@
     "parallel",
     "scale"
   ],
-  "version": "0.1.7",
+  "version": "1.0.0",
   "homepage": "http://github.com/simondean/parallel-cucumber-js",
   "author": { 
     "name" : "Simon Dean",
     "email" : "simon@simondean.org",
     "url" : "http://www.simondean.org"
   },
-  "contributors": [],
+  "contributors": [{
+    "name": "Kushang Gajjar",
+    "email": "g.kushang@gmail.com",
+    "url": "https://github.com/gkushang"
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/simondean/parallel-cucumber-js.git"

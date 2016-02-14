@@ -105,6 +105,10 @@ You can configure multiple formats, with each format configured to output to the
 $ node_modules/.bin/parallel-cucumber-js -f json:./output.json -f progress
 ```
 
+### parallel-cucumber-js v1.0.0 supports Cucumber version greater than 0.7.0
+
+### parallel-cucumber-js v0.1.7 supports Cucumber version 0.7.0 and lesser
+
 ### Example
 
 See https://github.com/simondean/parallel-cucumber-js-example for an example
