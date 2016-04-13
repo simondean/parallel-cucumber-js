@@ -1,6 +1,6 @@
 Feature: Cucumber events
 
-  Scenario: BeforeFeatures and AfterFeatures only fired once
+  Scenario: BeforeFeatures and AfterFeatures are fired for every scenario
     Given the environment variable 'LOG_CUCUMBER_EVENTS' is set to 'true'
     And the 'passing' feature
     And a profile called 'test_profile_1'
@@ -25,6 +25,8 @@ Feature: Cucumber events
       After step
       After scenario
       After feature
+      After features
+      Before features
       Before feature
       Before scenario
       Before step

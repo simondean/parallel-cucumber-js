@@ -1,7 +1,7 @@
 Feature: Profile environment variable
 
   Scenario: Profile environment variable
-    Given a 'profile_environment_variable' feature
+    Given the 'profile_environment_variable' feature
     And a profile called 'test_profile'
     And a 'json' formatter
     When executing the parallel-cucumber-js bin
@@ -20,14 +20,14 @@ Feature: Profile environment variable
             {
               "name": "Profile environment variable",
               "id": "Profile-environment-variable;profile-environment-variable",
-              "line": 4,
+              "line": 3,
               "keyword": "Scenario",
               "description": "",
               "type": "scenario",
               "steps": [
                 {
                   "name": "the environment variable 'PARALLEL_CUCUMBER_PROFILE' equals 'test_profile'",
-                  "line": 5,
+                  "line": 4,
                   "keyword": "Then ",
                   "result": {
                     "duration": "{duration}",
