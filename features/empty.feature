@@ -8,8 +8,6 @@ Feature: Empty
     Then the exit code should be '0'
     And stdout should contain JSON matching:
     """
-      [
-      ]
       """
     And stderr should be empty
 

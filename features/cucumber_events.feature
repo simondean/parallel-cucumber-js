@@ -44,7 +44,7 @@ Feature: Cucumber events
       """
     And stderr should be empty
 
-  Scenario: BeforeFeatures and AfterFeatures are still fired when there are no features
+  Scenario: No events fired when there are no scenarios to run
     Given the environment variable 'LOG_CUCUMBER_EVENTS' is set to 'true'
     And the 'empty' feature
     And a profile called 'test_profile'
@@ -55,12 +55,10 @@ Feature: Cucumber events
     Then the exit code should be '0'
     And stdout should contain text matching:
     """
-      Before features
-      After features
       """
     And stderr should be empty
 
-  Scenario: BeforeFeatures and AfterFeatures are not fired when a worker has no work
+  Scenario: No events fired when a worker has no work
     Given the environment variable 'LOG_CUCUMBER_EVENTS' is set to 'true'
     And the 'empty' feature
     And a profile called 'test_profile'
@@ -71,7 +69,5 @@ Feature: Cucumber events
     Then the exit code should be '0'
     And stdout should contain text matching:
     """
-      Before features
-      After features
       """
     And stderr should be empty
