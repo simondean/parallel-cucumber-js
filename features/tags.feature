@@ -39,7 +39,9 @@ Feature: Tags
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -95,7 +97,9 @@ Feature: Tags
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

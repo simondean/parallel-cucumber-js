@@ -362,6 +362,9 @@ module.exports = function() {
             if (typeof step.result.duration === 'number' && step.result.duration > 0) {
               step.result.duration = '{duration}';
             }
+            if (step.match && typeof step.match.location === 'string') {
+              step.match.location = '{location}';
+            }
           });
         });
       }

@@ -33,7 +33,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -79,7 +81,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -125,7 +129,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -158,7 +164,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -204,7 +212,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -237,7 +247,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -269,7 +281,9 @@ Feature: Retries
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -311,8 +325,7 @@ Feature: Retries
                   "keyword": "When ",
                   "result": {
                     "status": "undefined"
-                  },
-                  "match": {}
+                  }
                 }
               ]
             }
@@ -355,7 +368,9 @@ Feature: Retries
                   "result": {
                     "status": "pending"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

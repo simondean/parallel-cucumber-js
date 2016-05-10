@@ -46,7 +46,9 @@ Feature: Environment variables
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -84,7 +86,9 @@ Feature: Environment variables
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -122,7 +126,9 @@ Feature: Environment variables
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -180,7 +186,9 @@ Feature: Environment variables
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -218,7 +226,9 @@ Feature: Environment variables
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -256,7 +266,9 @@ Feature: Environment variables
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

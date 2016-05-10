@@ -32,7 +32,9 @@ Feature: Failing
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a failing action is executed",
@@ -43,7 +45,9 @@ Feature: Failing
                     "duration": "{duration}",
                     "status": "failed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a post-condition passes",
@@ -52,7 +56,9 @@ Feature: Failing
                   "result": {
                     "status": "skipped"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

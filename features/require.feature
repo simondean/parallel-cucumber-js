@@ -33,7 +33,9 @@ Feature: Require
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a passing action is executed",
@@ -43,7 +45,9 @@ Feature: Require
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a post-condition passes",
@@ -53,7 +57,9 @@ Feature: Require
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -99,7 +105,9 @@ Feature: Require
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a passing action is executed",
@@ -109,7 +117,9 @@ Feature: Require
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a post-condition passes",
@@ -119,7 +129,9 @@ Feature: Require
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

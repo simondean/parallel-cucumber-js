@@ -33,7 +33,9 @@ Feature: Dry run
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a failing action is executed",
@@ -43,7 +45,9 @@ Feature: Dry run
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a post-condition passes",
@@ -53,7 +57,9 @@ Feature: Dry run
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

@@ -32,7 +32,9 @@ Feature: Passing
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a passing action is executed",
@@ -42,7 +44,9 @@ Feature: Passing
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 },
                 {
                   "name": "a post-condition passes",
@@ -52,7 +56,9 @@ Feature: Passing
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

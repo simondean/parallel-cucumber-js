@@ -33,7 +33,9 @@ Feature: Scenario outline
                     "status": "passed",
                     "duration": "{duration}"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             },
@@ -54,7 +56,9 @@ Feature: Scenario outline
                     "duration": "{duration}",
                     "error_message": "Failed on retry 0"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -86,7 +90,9 @@ Feature: Scenario outline
                     "status": "passed",
                     "duration": "{duration}"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
