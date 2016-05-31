@@ -319,11 +319,6 @@ module.exports = function() {
     if (this.isDryRun()) { return callback(); }
 
     var world = this;
-    var actualJson = world[stream];
-
-    if (expectedJson.length === 0 && actualJson.length === 0) {
-      return callback();
-    }
 
     try {
       expectedJson = JSON.parse(expectedJson);
@@ -336,6 +331,8 @@ module.exports = function() {
       callback({ message: 'Syntax error in expected JSON', error: e, expectedJson: expectedJson });
       return;
     }
+
+    var actualJson = world[stream];
 
     try {
       actualJson = JSON.parse(actualJson);
