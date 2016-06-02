@@ -13,19 +13,18 @@ Feature: Parallel
     """
       [
         {
-          "id": "Blue",
+          "id": "blue",
           "name": "Blue",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/parallel/blue.feature",
           "elements": [
             {
               "name": "Blue",
-              "id": "Blue;blue",
+              "id": "blue;blue",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -35,6 +34,7 @@ Feature: Parallel
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -53,19 +53,18 @@ Feature: Parallel
           "retry": 0
         },
         {
-          "id": "Purple",
+          "id": "purple",
           "name": "Purple",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/parallel/purple.feature",
           "elements": [
             {
               "name": "Purple",
-              "id": "Purple;purple",
+              "id": "purple;purple",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -79,6 +78,7 @@ Feature: Parallel
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -97,19 +97,18 @@ Feature: Parallel
           "retry": 0
         },
         {
-          "id": "Purple",
+          "id": "purple",
           "name": "Purple",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/parallel/purple.feature",
           "elements": [
             {
               "name": "Purple",
-              "id": "Purple;purple",
+              "id": "purple;purple",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -123,6 +122,7 @@ Feature: Parallel
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -141,19 +141,18 @@ Feature: Parallel
           "retry": 0
         },
         {
-          "id": "Red",
+          "id": "red",
           "name": "Red",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/parallel/red.feature",
           "elements": [
             {
               "name": "Red",
-              "id": "Red;red",
+              "id": "red;red",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -163,6 +162,7 @@ Feature: Parallel
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -199,19 +199,18 @@ Feature: Parallel
     """
       [
         {
-          "id": "Purple",
+          "id": "purple",
           "name": "Purple",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/parallel/purple.feature",
           "elements": [
             {
               "name": "Purple",
-              "id": "Purple;purple",
+              "id": "purple;purple",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -225,6 +224,7 @@ Feature: Parallel
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -243,19 +243,18 @@ Feature: Parallel
           "retry": 0
         },
         {
-          "id": "Red",
+          "id": "red",
           "name": "Red",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/parallel/red.feature",
           "elements": [
             {
               "name": "Red",
-              "id": "Red;red",
+              "id": "red;red",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -265,6 +264,7 @@ Feature: Parallel
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",

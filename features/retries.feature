@@ -9,22 +9,23 @@ Feature: Retries
     """
       [
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -57,22 +58,23 @@ Feature: Retries
     """
       [
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -105,22 +107,23 @@ Feature: Retries
     """
       [
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -140,22 +143,23 @@ Feature: Retries
           "retry": 0
         },
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries - retry 1",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -188,22 +192,23 @@ Feature: Retries
     """
       [
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -223,22 +228,23 @@ Feature: Retries
           "retry": 0
         },
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries - retry 1",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -258,22 +264,23 @@ Feature: Retries
           "retry": 1
         },
         {
-          "id": "Retries",
+          "id": "retries",
           "name": "Retries - retry 2",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/retries.feature",
           "elements": [
             {
               "name": "Retries",
-              "id": "Retries;retries",
+              "id": "retries;retries",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '2'",
                   "line": 4,
                   "keyword": "When ",
@@ -304,22 +311,23 @@ Feature: Retries
     """
       [
         {
-          "id": "Undefined",
+          "id": "undefined",
           "name": "Undefined",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/undefined.feature",
           "elements": [
             {
               "name": "Undefined",
-              "id": "Undefined;undefined",
+              "id": "undefined;undefined",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an undefined action is executed",
                   "line": 4,
                   "keyword": "When ",
@@ -346,22 +354,23 @@ Feature: Retries
     """
       [
         {
-          "id": "Pending",
+          "id": "pending",
           "name": "Pending",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/pending.feature",
           "elements": [
             {
               "name": "Pending",
-              "id": "Pending;pending",
+              "id": "pending;pending",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a pending action is executed",
                   "line": 4,
                   "keyword": "When ",

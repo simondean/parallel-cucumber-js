@@ -17,19 +17,19 @@ Feature: Environment variables
     """
       [
         {
-          "id": "Environment-variables",
+          "id": "environment-variables",
           "name": "Environment variables",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/environment_variables.feature",
           "elements": [
             {
               "name": "Environment variable has not been set",
-              "id": "Environment-variables;environment-variable-has-not-been-set",
+              "id": "environment-variables;environment-variable-has-not-been-set",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "tags": [
                 {
@@ -39,6 +39,7 @@ Feature: Environment variables
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "the environment variable 'EXAMPLE_NAME' is not set",
                   "line": 5,
                   "keyword": "Then ",
@@ -57,19 +58,19 @@ Feature: Environment variables
           "retry": 0
         },
         {
-          "id": "Environment-variables",
+          "id": "environment-variables",
           "name": "Environment variables",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/environment_variables.feature",
           "elements": [
             {
               "name": "Environment variable has been set",
-              "id": "Environment-variables;environment-variable-has-been-set",
+              "id": "environment-variables;environment-variable-has-been-set",
               "line": 8,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "tags": [
                 {
@@ -79,6 +80,7 @@ Feature: Environment variables
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "the environment variable 'EXAMPLE_NAME' equals 'example_value'",
                   "line": 9,
                   "keyword": "Then ",
@@ -97,19 +99,19 @@ Feature: Environment variables
           "retry": 0
         },
         {
-          "id": "Environment-variables",
+          "id": "environment-variables",
           "name": "Environment variables",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/environment_variables.feature",
           "elements": [
             {
               "name": "Environment variable has not been set",
-              "id": "Environment-variables;environment-variable-has-not-been-set",
+              "id": "environment-variables;environment-variable-has-not-been-set",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "tags": [
                 {
@@ -119,6 +121,7 @@ Feature: Environment variables
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "the environment variable 'EXAMPLE_NAME' is not set",
                   "line": 5,
                   "keyword": "Then ",
@@ -157,19 +160,18 @@ Feature: Environment variables
     """
       [
         {
-          "id": "Environment-variables",
+          "id": "environment-variables",
           "name": "Environment variables",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/environment_variables.feature",
           "elements": [
             {
               "name": "Environment variable has old value",
-              "id": "Environment-variables;environment-variable-has-old-value",
+              "id": "environment-variables;environment-variable-has-old-value",
               "line": 12,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -179,6 +181,7 @@ Feature: Environment variables
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "the environment variable 'EXAMPLE_NAME' equals 'old_example_value'",
                   "line": 13,
                   "keyword": "Then ",
@@ -197,19 +200,18 @@ Feature: Environment variables
           "retry": 0
         },
         {
-          "id": "Environment-variables",
+          "id": "environment-variables",
           "name": "Environment variables",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/environment_variables.feature",
           "elements": [
             {
               "name": "Environment variable has been set",
-              "id": "Environment-variables;environment-variable-has-been-set",
+              "id": "environment-variables;environment-variable-has-been-set",
               "line": 8,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -219,6 +221,7 @@ Feature: Environment variables
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "the environment variable 'EXAMPLE_NAME' equals 'example_value'",
                   "line": 9,
                   "keyword": "Then ",
@@ -237,19 +240,18 @@ Feature: Environment variables
           "retry": 0
         },
         {
-          "id": "Environment-variables",
+          "id": "environment-variables",
           "name": "Environment variables",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/environment_variables.feature",
           "elements": [
             {
               "name": "Environment variable has old value",
-              "id": "Environment-variables;environment-variable-has-old-value",
+              "id": "environment-variables;environment-variable-has-old-value",
               "line": 12,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -259,6 +261,7 @@ Feature: Environment variables
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "the environment variable 'EXAMPLE_NAME' equals 'old_example_value'",
                   "line": 13,
                   "keyword": "Then ",

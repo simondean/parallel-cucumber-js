@@ -10,22 +10,23 @@ Feature: Require
     """
       [
         {
-          "id": "Passing",
+          "id": "passing",
           "name": "Passing",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/passing.feature",
           "elements": [
             {
               "name": "Passing",
-              "id": "Passing;passing",
+              "id": "passing;passing",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing pre-condition",
                   "line": 4,
                   "keyword": "Given ",
@@ -38,6 +39,7 @@ Feature: Require
                   }
                 },
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -50,6 +52,7 @@ Feature: Require
                   }
                 },
                 {
+                  "arguments": [],
                   "name": "a post-condition passes",
                   "line": 6,
                   "keyword": "Then ",
@@ -82,22 +85,23 @@ Feature: Require
     """
       [
         {
-          "id": "Passing",
+          "id": "passing",
           "name": "Passing",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/passing.feature",
           "elements": [
             {
               "name": "Passing",
-              "id": "Passing;passing",
+              "id": "passing;passing",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing pre-condition",
                   "line": 4,
                   "keyword": "Given ",
@@ -110,6 +114,7 @@ Feature: Require
                   }
                 },
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -122,6 +127,7 @@ Feature: Require
                   }
                 },
                 {
+                  "arguments": [],
                   "name": "a post-condition passes",
                   "line": 6,
                   "keyword": "Then ",

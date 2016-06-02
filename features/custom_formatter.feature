@@ -8,7 +8,7 @@ Feature: Custom formatter
     And stdout should contain text matching:
     """
       Start
-      Feature Passing
+      Feature passing
       End
       """
     And stderr should be empty

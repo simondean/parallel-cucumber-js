@@ -40,7 +40,7 @@
     "gherkin": "~4.0.0"
   },
   "peerDependencies": {
-    "cucumber": ">=0.10.2"
+    "cucumber": ">=1.0.0"
   },
   "devDependencies": {
     "grunt-cli": "~0.1.13",

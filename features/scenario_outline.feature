@@ -10,22 +10,23 @@ Feature: Scenario outline
     """
       [
         {
-          "id": "Scenario-outline",
+          "id": "scenario-outline",
           "name": "Scenario outline",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/scenario_outline.feature",
           "elements": [
             {
               "name": "Scenario outline",
-              "id": "Scenario-outline;scenario-outline",
+              "id": "scenario-outline;scenario-outline",
               "line": 8,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '0'",
                   "line": 4,
                   "keyword": "When ",
@@ -41,13 +42,14 @@ Feature: Scenario outline
             },
             {
               "name": "Scenario outline",
-              "id": "Scenario-outline;scenario-outline",
+              "id": "scenario-outline;scenario-outline",
               "line": 9,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '1'",
                   "line": 4,
                   "keyword": "When ",
@@ -67,22 +69,23 @@ Feature: Scenario outline
           "retry": 0
         },
         {
-          "id": "Scenario-outline",
+          "id": "scenario-outline",
           "name": "Scenario outline - retry 1",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/scenario_outline.feature",
           "elements": [
             {
               "name": "Scenario outline",
-              "id": "Scenario-outline;scenario-outline",
+              "id": "scenario-outline;scenario-outline",
               "line": 9,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "an action is executed that passes on retry '1'",
                   "line": 4,
                   "keyword": "When ",

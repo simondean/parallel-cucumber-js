@@ -10,22 +10,23 @@ Feature: Dry run
     """
       [
         {
-          "id": "Failing",
+          "id": "failing",
           "name": "Failing",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/failing.feature",
           "elements": [
             {
               "name": "Failing",
-              "id": "Failing;failing",
+              "id": "failing;failing",
               "line": 3,
               "keyword": "Scenario",
-              "description": "",
+              "tags": [],
               "type": "scenario",
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing pre-condition",
                   "line": 4,
                   "keyword": "Given ",
@@ -38,6 +39,7 @@ Feature: Dry run
                   }
                 },
                 {
+                  "arguments": [],
                   "name": "a failing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -50,6 +52,7 @@ Feature: Dry run
                   }
                 },
                 {
+                  "arguments": [],
                   "name": "a post-condition passes",
                   "line": 6,
                   "keyword": "Then ",
