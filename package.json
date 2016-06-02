@@ -37,7 +37,6 @@
     "debug": "~1.0.2",
     "js-yaml": "~3.0.2",
     "colors": "~0.6.2",
-    "commander": "^2.9.0",
     "gherkin": "~4.0.0"
   },
   "peerDependencies": {
@@ -49,7 +48,7 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-shell": "~0.7.0",
-    "deep-diff": "~0.1.7",
+    "deep-diff": "latest",
     "diff": "~1.0.8",
     "stripcolorcodes": "~0.1.0"
   },

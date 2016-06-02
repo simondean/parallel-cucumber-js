@@ -1,6 +1,6 @@
 Feature: Cucumber events
 
-  Scenario: BeforeFeatures and AfterFeatures are fired for every scenario
+  Scenario: BeforeFeatures and AfterFeatures only fired once
     Given the environment variable 'LOG_CUCUMBER_EVENTS' is set to 'true'
     And the 'passing' feature
     And a profile called 'test_profile_1'
@@ -25,8 +25,6 @@ Feature: Cucumber events
       After step
       After scenario
       After feature
-      After features
-      Before features
       Before feature
       Before scenario
       Before step
@@ -44,7 +42,7 @@ Feature: Cucumber events
       """
     And stderr should be empty
 
-  Scenario: No events fired when there are no scenarios to run
+  Scenario: BeforeFeatures and AfterFeatures are not fired when there are no features
     Given the environment variable 'LOG_CUCUMBER_EVENTS' is set to 'true'
     And the 'empty' feature
     And a profile called 'test_profile'
@@ -58,7 +56,7 @@ Feature: Cucumber events
       """
     And stderr should be empty
 
-  Scenario: No events fired when a worker has no work
+  Scenario: BeforeFeatures and AfterFeatures are not fired when a worker has no work
     Given the environment variable 'LOG_CUCUMBER_EVENTS' is set to 'true'
     And the 'empty' feature
     And a profile called 'test_profile'
