@@ -7,8 +7,8 @@
 ### [v1.0.0](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.7...v1.0.0)
 
 #### New features
-* Upgraded to latest version of Cucumber, v1.0.0
-* Executes scenarios in parallel rather than just executing features in parallel, leading to greater parallelisation.  
+* Upgraded to latest version of Cucumber, v1.0.0 (closes #16)
+* Executes scenarios in parallel rather than just executing features in parallel (closes #14)  
 
 ## [v0.1.x](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.0...v1.0.0)
 
