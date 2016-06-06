@@ -10,19 +10,18 @@ Feature: Tags
     """
       [
         {
-          "id": "Tags",
+          "id": "tags",
           "name": "Tags",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/tags.feature",
           "elements": [
             {
               "name": "Tagged",
-              "id": "Tags;tagged",
+              "id": "tags;tagged",
               "line": 4,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -32,6 +31,7 @@ Feature: Tags
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 5,
                   "keyword": "When ",
@@ -39,7 +39,9 @@ Feature: Tags
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }
@@ -62,19 +64,18 @@ Feature: Tags
     """
       [
         {
-          "id": "Tags",
+          "id": "tags",
           "name": "Tags",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/tags.feature",
           "elements": [
             {
               "name": "Tagged twice",
-              "id": "Tags;tagged-twice",
+              "id": "tags;tagged-twice",
               "line": 8,
               "keyword": "Scenario",
-              "description": "",
               "type": "scenario",
               "tags": [
                 {
@@ -88,6 +89,7 @@ Feature: Tags
               ],
               "steps": [
                 {
+                  "arguments": [],
                   "name": "a passing action is executed",
                   "line": 9,
                   "keyword": "When ",
@@ -95,7 +97,9 @@ Feature: Tags
                     "duration": "{duration}",
                     "status": "passed"
                   },
-                  "match": {}
+                  "match": {
+                    "location": "{location}"
+                  }
                 }
               ]
             }

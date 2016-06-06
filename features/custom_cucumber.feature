@@ -11,9 +11,9 @@ Feature: Custom Cucumber
       [
         {
           "custom_cucumber": true,
-          "id": "Passing",
+          "id": "passing",
           "name": "Passing",
-          "description": "",
+          "tags": [],
           "line": 1,
           "keyword": "Feature",
           "uri": "{uri}/features/passing.feature",

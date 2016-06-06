@@ -36,10 +36,11 @@
     "glob": "~4.0.2",
     "debug": "~1.0.2",
     "js-yaml": "~3.0.2",
-    "colors": "~0.6.2"
+    "colors": "~0.6.2",
+    "gherkin": "~4.0.0"
   },
   "peerDependencies": {
-    "cucumber": ">=0.3.1"
+    "cucumber": ">=1.0.0"
   },
   "devDependencies": {
     "grunt-cli": "~0.1.13",
@@ -47,7 +48,7 @@
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-shell": "~0.7.0",
-    "deep-diff": "~0.1.7",
+    "deep-diff": "latest",
     "diff": "~1.0.8",
     "stripcolorcodes": "~0.1.0"
   },
