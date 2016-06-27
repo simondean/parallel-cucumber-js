@@ -373,7 +373,24 @@ module.exports = function() {
     var differences = DeepDiff.diff(actualJson, expectedJson);
 
     if (differences) {
-      callback({ message: 'Actual JSON did not match expected JSON', differences: differences });
+      var transformedDifferences = [];
+
+      differences.forEach(function(difference) {
+        var path = '';
+
+        difference.path.forEach(function(pathPart) {
+          path += '/' + pathPart;
+        });
+
+        transformedDifferences.push({
+          kind: difference.kind,
+          path: path,
+          lhs: difference.lhs,
+          rhs: difference.rhs
+        });
+      });
+
+      callback({ message: 'Actual JSON did not match expected JSON', differences: transformedDifferences });
     }
     else {
       callback();
