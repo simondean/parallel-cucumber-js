@@ -8,7 +8,7 @@
     "parallel",
     "scale"
   ],
-  "version": "1.1.0",
+  "version": "1.0.1",
   "homepage": "http://github.com/simondean/parallel-cucumber-js",
   "author": {
     "name" : "Simon Dean",
@@ -40,7 +40,7 @@
     "gherkin": "~4.0.0"
   },
   "peerDependencies": {
-    "cucumber": "~1.1.0"
+    "cucumber": "~1.0.0"
   },
   "devDependencies": {
     "grunt-cli": "~0.1.13",
