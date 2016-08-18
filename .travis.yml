@@ -12,7 +12,7 @@ before_install:
 
 install:
   - npm install
-  - npm install cucumber@~1.0.0
+  - npm install cucumber@~1.1.0
 
 notifications:
   email:
