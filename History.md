@@ -2,7 +2,16 @@
 
 ## [v1.0.x](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...master)
 
-### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.1...master)
+### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v1.1.0...master)
+
+## [v1.1.x](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.1...v1.1.0)
+
+### [v1.1.0](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.1...v1.1.0)
+
+#### New features
+* Upgraded to Cucumber v1.1.0
+
+## [v1.0.x](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...v1.0.1)
 
 ### [v1.0.1](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...v1.0.1)
 
