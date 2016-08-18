@@ -2,7 +2,12 @@
 
 ## [v1.0.x](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...master)
 
-### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...master)
+### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.1...master)
+
+### [v1.0.1](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...v1.0.1)
+
+#### Fixes
+* Backgrounds no longer a failure (closes #20)
 
 ### [v1.0.0](https://github.com/simondean/parallel-cucumber-js/compare/v0.1.7...v1.0.0)
 
