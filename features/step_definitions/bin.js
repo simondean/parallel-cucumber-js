@@ -135,6 +135,17 @@ module.exports = function() {
     callback();
   });
 
+  this.Given(/^'(.*)' compiler is set/, function(compiler, callback) {
+    if (this.isDryRun()) { return callback(); }
+    var world = this;
+
+    if (!world.compiler) {
+      world.compiler = compiler;
+    }
+
+    callback();
+  });
+
   this.Given(/^dry run mode$/, function(callback) {
     if (this.isDryRun()) { return callback(); }
 
@@ -236,6 +247,11 @@ module.exports = function() {
         args.push('-r');
         args.push(supportCodePath);
       });
+    }
+
+    if (world.compiler) {
+      args.push('--compiler');
+      args.push(world.compiler);
     }
 
     if (world.workerCount) {
