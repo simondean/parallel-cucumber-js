@@ -4,6 +4,11 @@
 
 ### [master (unreleased)](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.1...master)
 
+### [v1.0.2](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.1...v1.0.2)
+
+#### New features
+* Added the --compiler command line argument enabling pre-processing sources (e.g. babel-register)
+
 ### [v1.0.1](https://github.com/simondean/parallel-cucumber-js/compare/v1.0.0...v1.0.1)
 
 #### Fixes
