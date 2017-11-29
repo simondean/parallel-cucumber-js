@@ -105,6 +105,17 @@ You can configure multiple formats, with each format configured to output to the
 $ node_modules/.bin/parallel-cucumber-js -f json:./output.json -f progress
 ```
 
+### Keeping Feature Files Together
+
+By default, scenarios will be split up and given to workers without consideration for what feature file they belong to.
+You can change this behaviour, to split up tasks as complete feature files, rather than individual scenarios by passing the `--keep-features-together` argument.
+
+This can be useful if you have designed your cucumber tests to be run as individual features, where the scenarios in a feature file depend on earlier scenarios in the same feature file having run on the same process already.
+
+``` shell
+$ node_modules/.bin/parallel-cucumber-js --keep-features-toghether
+```
+
 ### Example
 
 See https://github.com/simondean/parallel-cucumber-js-example for an example
