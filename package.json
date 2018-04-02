@@ -50,7 +50,8 @@
     "grunt-shell": "~0.7.0",
     "deep-diff": "~0.3.4",
     "diff": "~1.0.8",
-    "stripcolorcodes": "~0.1.0"
+    "stripcolorcodes": "~0.1.0",
+    "cucumber": "~1.0.0"
   },
   "bin": {
     "parallel-cucumber-js": "./bin/parallel-cucumber-js"
