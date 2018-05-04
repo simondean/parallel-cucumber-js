@@ -9,11 +9,6 @@ module.exports = function() {
     callback();
   });
 
-  this.Background(function(event, callback) {
-    if (shouldLog()) { console.log('Background'); }
-    callback();
-  });
-
   this.BeforeScenario(function(event, callback) {
     if (shouldLog()) { console.log('Before scenario'); }
     callback();
